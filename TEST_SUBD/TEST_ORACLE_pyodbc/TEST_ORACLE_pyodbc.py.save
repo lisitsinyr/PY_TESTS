@@ -1,0 +1,229 @@
+#=======================================================================================
+# TEST_ORACLE_pyodbc.py
+#=======================================================================================
+
+#------------------------------------------
+# БИБЛИОТЕКИ python
+#------------------------------------------
+import os
+import sys
+
+#------------------------------------------
+# БИБЛИОТЕКИ сторонние
+#------------------------------------------
+import argparse
+import datetime
+import getpass
+import oracledb
+import pyodbc
+
+#------------------------------------------
+#БИБЛИОТЕКА LU
+#------------------------------------------
+import LUConst
+import LUStrings
+import LUSupport
+#------------------------------------------
+
+print (__name__)
+#------------------------------------------
+# Разбор аргументов
+#------------------------------------------
+parser = argparse.ArgumentParser(description='Параметры')
+parser.add_argument('-P1', type=str, nargs='?', default='', dest='P1', help='P1')
+args = parser.parse_args()
+print('-P1 =',args.P1)
+#------------------------------------------
+#------------------------------------------
+P1: str = ''
+if args.P1 != '':
+    P1 = args.P1
+#endif
+#------------------------------------------
+
+
+#------------------------------------------
+# CreateConnection():
+#------------------------------------------
+def CreateConnection():
+    global connection
+    global dbCursor
+#beginfunction
+    print ('CreateConnection ...')
+    #-----------------------------------------------
+    # Создаём строку подключения к нашей базе данных:
+    #---------------------------------------------------------
+    # Trusted Connection
+    # Trusted Connection – указывает на способ подключения пользователей к БД.
+    # В случае, если указано значение «yes», для проверки подлинности используется учётная запись Windows,
+    # а ключи UID и PWD игнорируются, и наоборот, при выборе значения «no»
+    #---------------------------------------------------------
+
+    #---------------------------------------------------------
+    # 1. Указать имя источника базы данных (DSN)
+    #---------------------------------------------------------
+    connectionString = ("DSN=MSSQL_TEST;Trusted_Connection=yes")
+    #---------------------------------------------------------
+    #---------------------------------------------------------
+    # 2. Указать имя драйвера
+    #-----------------------------------------------
+    connectionString = ("Driver={ODBC Driver 17 for SQL Server};Server=ASUS-W10P;Database=MSSQL_TEST;Trusted_Connection=yes")
+    connectionString = ("Driver={Oracle in OraDB19Home1};DBQ=ORCL;Uid=ot;Pwd=OT")
+    #-----------------------------------------------
+
+    connectionString = ("DSN=ORCL;Uid=ot;Pwd=OT")
+    print (connectionString.title())
+
+    #-----------------------------------------------
+    # Выполним соединение к нашей базе данных:
+    #-----------------------------------------------
+    connection = pyodbc.connect(connectionString, autocommit=True)
+
+    #-----------------------------------------------
+    # Создадим курсор, с помощью которого, посредством передачи запросов
+    # будем оперировать данными в нашей таблице:
+    #-----------------------------------------------
+    dbCursor = connection.cursor()
+#endfunction
+
+#-------------------------------------------------------------------------------
+# CreateTable ():
+#-------------------------------------------------------------------------------
+def CREATE_Table ():
+#beginfunction
+    print ('CREATE_Table ...')
+    qCreateTable = """
+        CREATE TABLE todoitem (
+            id number generated always as identity,
+            description varchar2(4000),
+            creation_ts timestamp with time zone default current_timestamp,
+            done number(1,0),
+            primary key (id))"""
+    dbCursor.execute (qCreateTable)
+#endfunction
+
+#-------------------------------------------------------------------------------
+# DropTable ():
+#-------------------------------------------------------------------------------
+def DROP_Table ():
+#beginfunction
+    print ('DROP_Table ...')
+    dbCursor.execute ("""
+    DROP TABLE todoitem
+    """)
+#endfunction
+
+#-------------------------------------------------------------------------------
+# InsertTable ():
+#-------------------------------------------------------------------------------
+def INSERT_Table ():
+#beginfunction
+    print ('INSERT_Table ...')
+
+    ######## INSERT DATA IN TABLE ########
+    #dbCursor.execute ("""
+    #    INSERT INTO posts VALUES(10, 'Hey There', '11.23.2016')
+    #    INSERT INTO posts VALUES(11, 'Hey There', '11.23.2016')
+    #    INSERT INTO posts VALUES(12, 'Hey There', '11.23.2016')
+    #""")
+    # commit your work to database
+    #connection.commit ()
+
+    rows = [("Task 1", 0),
+        ("Task 2", 0),
+        ("Task 3", 1),
+        ("Task 41", 0),
+        ("Task 42", 1),
+        ("Task 43", 1),
+        ("Task 44", 1),
+        ("Task 45", 0),
+        ("Task 46", 0),
+        ("Task 5", 1)]
+    dbCursor.executemany ("INSERT INTO todoitem (description, done) values(:1, :2)", rows)
+    print (dbCursor.rowcount, "Rows Inserted")
+    connection.commit ()
+#endfunction
+
+#-------------------------------------------------------------------------------
+# SelectTable():
+#-------------------------------------------------------------------------------
+def SELECT_Table():
+#beginfunction
+    print ('SELECT_Table ...')
+
+    #query = 'select BookId, Title, Author, Category from BOOK where Category=?'
+    #parameters = ['Data']
+    #dbCursor.execute (query, parameters)
+
+    #query = "SELECT * FROM posts ORDER BY publish_date DESC"
+    #dbCursor.execute (query)
+    #row = dbCursor.fetchone()
+    #for row in dbCursor:
+    #    print ("Message: ", row [0], row [1], row [2])
+    #    #-------------------------------------------------
+    #    # if you pass as_dict=True to cursor
+    #    # print (row['post_id'])
+    #    #-------------------------------------------------
+    #
+    #dbCursor.execute ("SELECT * FROM posts ORDER BY publish_date DESC")
+    #for row in dbCursor:
+    #    print ("Message: ", row.post_id, row.message, row.publish_date)
+    #
+    #connection.close ()
+
+    for row in dbCursor.execute ('select description, done from todoitem'):
+        if row [1]:
+            print (row [0], "is done")
+        else:
+            print (row [0], "is NOT done")
+#endfunction
+#------------------------------------------
+# main():
+#------------------------------------------
+def main():
+#beginfunction
+    CreateConnection()
+    #-----------------------------------------------
+    DROP_Table ()
+    #-----------------------------------------------
+    CREATE_Table ()
+    #-----------------------------------------------
+    INSERT_Table ()
+    #-----------------------------------------------
+    # dbCursor.
+    #   fetchall() – возвращает число записей в виде упорядоченного списка;
+    #   fetchmany(size) – возвращает число записей не более size;
+    #   fetchone() – возвращает первую запись
+    #-----------------------------------------------
+    #dbCursor.execute("SELECT @@version;")
+    #row = dbCursor.fetchone()
+    #for row in dbCursor:
+    #    print ("version:", row[0])
+    #-----------------------------------------------
+    SELECT_Table ()
+#endfunction
+
+#------------------------------------------
+#
+#------------------------------------------
+#beginmodule
+if __name__ == "__main__":
+    main()
+#endif
+
+#endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
