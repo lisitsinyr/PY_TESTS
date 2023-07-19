@@ -1,4 +1,3 @@
-echo "# TESTS_PY" >> README.md
 git init
 git add README.md
 git commit -m "ASUS-W10P"
