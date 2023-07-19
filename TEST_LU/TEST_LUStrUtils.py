@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 __annotations__ = """
  =======================================================
- Copyright (c) 2023.07.19
+ Copyright (c) 2023
  Author:
      Lisitsin Y.R.
  Project:
