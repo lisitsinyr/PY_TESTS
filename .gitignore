@@ -31,5 +31,6 @@ __pycache__/
 TEST_LU/EXE/*
 TEST_LU/LOG/*
 TEST_LU/WORK/*
+TEST_LU/*.log
 
 # ----------------------------------------------------------------
