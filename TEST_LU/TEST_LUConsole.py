@@ -7,7 +7,7 @@ __annotations__ = """
      Lisitsin Y.R.
  Project:
      LU_PY
-     Python (LU)
+     Python (PROJECTS_PY)
  Module:
      TEST_LUConsole.py
 
