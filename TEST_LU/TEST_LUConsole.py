@@ -42,6 +42,9 @@ import progress.bar
 from LUDoc import *
 import LUConsole
 
+#------------------------------------------
+# TEST_LUConsole ()
+#------------------------------------------
 def TEST_LUConsole ():
     """TEST_LUConsole"""
 #beginfunction
