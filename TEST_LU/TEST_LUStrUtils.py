@@ -278,7 +278,7 @@ def TEST_GetParamFromString ():
     PrintInfoObject('---------TEST_GetParamFromString----------')
     PrintInfoObject(TEST_GetParamFromString)
 
-    s0 = 'T:\\db\\files|T:\\db\\files\!||$SAVE|move,del|0'
+    s0 = "T:\b\files|T:\b\files||$SAVE|move,del|0"
     s = 'String IN='+s0
     LULog.LoggerAPPS.log (LULog.TEXT, s)
 
@@ -326,7 +326,7 @@ def TEST_SetParamToString ():
     PrintInfoObject('---------TEST_SetParamToString----------')
     PrintInfoObject(TEST_SetParamToString)
 
-    s0 = 'T:\\db\\files|T:\db\\files\\!||$SAVE|move,del|0'
+    s0 = "T:\\b\\files|T:\\b\\files||$SAVE|move,del|0"
     s = 'String IN='+s0
     LULog.LoggerAPPS.log (LULog.TEXT, s)
 
@@ -369,7 +369,7 @@ def TEST_DelChars ():
     PrintInfoObject('---------TEST_DelChars----------')
     PrintInfoObject(TEST_DelChars)
 
-    s0 = 'T:\\db\\files|T:\\db\\files\!||$SAVE|move,del|0'
+    s0 = "T:\\b\\files|T:\\b\\files||$SAVE|move,del|0"
     s = 'String IN='+s0
     LULog.LoggerAPPS.log (LULog.TEXT, s)
     s = LUStrUtils.DelChars(s0, '|')
@@ -386,7 +386,7 @@ def TEST_DelSpaces ():
     PrintInfoObject('---------TEST_DelSpaces----------')
     PrintInfoObject(TEST_DelSpaces)
 
-    s = 'T:\\db\\files           |T:\\db\\files\!||$SAVE|move,del|0'
+    s = "T:\\b\\files||$SAVE|move,del|0"
     s = 'String IN='+s
     LULog.LoggerAPPS.log (LULog.TEXT, s)
     s = LUStrUtils.DelSpaces(s)

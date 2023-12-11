@@ -25,8 +25,8 @@ __annotations__ = """
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LULog
-import LUConst
+# import LULog
+# import LUConst
 from LUDoc import *
 
 def TEST_ ():

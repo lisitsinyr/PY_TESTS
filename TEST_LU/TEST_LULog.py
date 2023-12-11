@@ -498,7 +498,7 @@ def __GetINI ():
     if not GArgParser is None:
         # from ArgParser
         if len(GArgParser.Args.lf) == 0:
-            LLogFile = 'LOG\\LOGGING_FILEINI.log'
+            LLogFile = 'LOGGING_FILEINI.log'
         else:
             LLogFile = GArgParser.Args.lf
         #endif
