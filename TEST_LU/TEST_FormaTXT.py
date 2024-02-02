@@ -20,6 +20,7 @@ __annotations__ = """
 import textwrap
 import sys
 import os
+import chardet
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -29,6 +30,21 @@ import os
 # БИБЛИОТЕКА LU 
 #------------------------------------------
 #import LULog
+
+#--------------------------------------------------------------------------------
+# GetFileEncoding (AFileName: str) -> str:
+#--------------------------------------------------------------------------------
+def GetFileEncoding (AFileName: str) -> str:
+    """GetFileEncoding"""
+#beginfunction
+    LEncoding = ''
+    LFile = open (AFileName, 'rb')
+    LRawData = LFile.read ()
+    LResult = chardet.detect (LRawData)
+    LEncoding = LResult ['encoding']
+    LFile.close ()
+    return LEncoding
+#endfunction
 
 #------------------------------------------
 def main ():
@@ -52,7 +68,13 @@ def main ():
 
     # Use the provided width if available, otherwise use the default
     width = int(sys.argv[2]) if len(sys.argv) == 3 else default_width
-    width = default_width
+
+    #!!!! check File encoding
+    cDefaultEncoding = 'utf8'
+    encodingFILE = GetFileEncoding (filename)
+    if encodingFILE == '':
+        encodingFILE = cDefaultEncoding
+    #endif
 
     #!!!! with open(filename, 'r') as file:
     with open(filename, 'r', encoding='utf8') as file:
