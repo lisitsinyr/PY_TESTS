@@ -1,36 +1,23 @@
-# ----------------------------------------------------------------
-# GENERAL
-# ----------------------------------------------------------------
-# Environments
-.env/*
-.venv/*
-.vscode/*
-# VS Code
-*.code-workspace
-# PyCharm
-.idea/*
+### VS Code ###
+.vscode/
+.vs/
 
-# Каталоги
-EXE/*
-LOG/*
-WORK/*
-out/*
-
-# Файлы
-*.exe
-*.spec
-*.log
-GIT_CONFIG
-CreateGIT.bat
-
+### PyCharm ###
+.idea/
 __pycache__/
 
-# ----------------------------------------------------------------
-# APP
-# ----------------------------------------------------------------
-TEST_LU/EXE/*
-TEST_LU/LOG/*
-TEST_LU/WORK/*
-TEST_LU/*.log
+### ФАЙЛЫ ###
+GIT_CONFIG*
+config*
+*.log
 
+### КАТАЛОГИ ###
+clickers/
+LOGS/
+LOG/
+RE/
+Replace if-else Statements/
+out/
 # ----------------------------------------------------------------
+TEST_LU/EXE/
+TEST_LU/WORK/
