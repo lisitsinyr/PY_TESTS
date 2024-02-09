@@ -11,7 +11,11 @@ GIT_CONFIG*
 config*
 *.log
 *.bat
+*.exe
 
 ### КАТАЛОГИ ###
 LOGS/
 LOG/
+out/
+EXE/
+WORK/
