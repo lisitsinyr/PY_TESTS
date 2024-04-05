@@ -45,23 +45,23 @@ def TEST_GetParam ():
     PrintInfoObject(TEST_GetParam)
 
     s = f'sys.argv = {sys.argv}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP1 = LUParserARG.GetParam('p1', "")
     s = f'p1 = {LP1}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP2 = LUParserARG.GetParam('P2', "")
     s = f'P2 = {LP2}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP3 = LUParserARG.GetParam('P3', "")
     s = f'P3 = {LP3}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP4 = LUParserARG.GetParam('P4', "")
     s = f'P4 = {LP4}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     ...
 #endfunction
 
@@ -72,7 +72,7 @@ def TEST_ArgumentParser ():
     PrintInfoObject(TEST_ArgumentParser)
 
     s = f'sys.argv = {sys.argv}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     Lparser = argparse.ArgumentParser (description='Параметры', prefix_chars='-/')
     Lparser.add_argument ('FileName', type = str, default='', help = 'FileName')
@@ -83,19 +83,19 @@ def TEST_ArgumentParser ():
     Largs = Lparser.parse_args ()
     LP1 = Largs.p1
     s = f'p1 = {LP1}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP2 = Largs.P2
     s = f'P2 = {LP2}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP3 = Largs.P3
     s = f'P3 = {LP3}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP4 = Largs.P4
     s = f'P4 = {LP4}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     ...
 #endfunction
 
@@ -106,7 +106,7 @@ def TEST_TArgParser ():
     PrintInfoObject(TEST_TArgParser)
 
     s = f'sys.argv = {sys.argv}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LArgParser = LUParserARG.TArgParser(description='Параметры', prefix_chars='-/')
     #-----------------------------------------------------------------
@@ -125,15 +125,15 @@ def TEST_TArgParser ():
     #-----------------------------------------------------------------
     # LArg = LArgParser.add_argument ('FileName', type = str, default='', help = 'FileName')
     LArg = LArgParser.ArgParser.add_argument ('FileName', type = str, default='', help = 'FileName')
-    LULog.LoggerAPPS.log (LULog.TEXT, LArg)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('-p1', type = str, default='', help = 'p1')
-    LULog.LoggerAPPS.log (LULog.TEXT, LArg)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('/P2', type = int, default=-1, help = 'P2')
-    LULog.LoggerAPPS.log (LULog.TEXT, LArg)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('-P3', type = int, default=-1, help = 'P3')
-    LULog.LoggerAPPS.log (LULog.TEXT, LArg)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('-P4', type = int, default=-1, nargs = '?', help = 'P4')
-    LULog.LoggerAPPS.log (LULog.TEXT, LArg)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LArg)
 
     # _StoreAction(option_strings=[], dest='FileName', nargs='?', const=None, default='', type=<class 'str'>, choices=None, required=False, help='FileName', metavar=None)
     # _StoreAction(option_strings=['-p1'], dest='p1', nargs='?', const=None, default='', type=<class 'str'>, choices=None, required=False, help='p1', metavar=None)
@@ -143,27 +143,27 @@ def TEST_TArgParser ():
 
     # Largs = LArgParser.parse_args ()
     Largs = LArgParser.ArgParser.parse_args ()
-    LULog.LoggerAPPS.log (LULog.TEXT, Largs.__dict__)
+    LULog.LoggerAPPSAdd (LULog.TEXT, Largs.__dict__)
 
     LFileName = Largs.FileName
     s = f'FileName = {LFileName}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP1 = Largs.p1
     s = f'p1 = {LP1}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP2 = Largs.P2
     s = f'P2 = {LP2}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP3 = Largs.P3
     s = f'P3 = {LP3}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LP4 = Largs.P4
     s = f'P4 = {LP4}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     # parser.add_argument('integers', metavar='N', type=int, nargs='+', help='an integer for the accumulator')
     #_StoreAction(option_strings=[], dest='integers', nargs='+', const=None, default=None, type=<class 'int'>, choices=None, required=True, help='an integer for the accumulator', metavar='N')
@@ -177,6 +177,8 @@ def TEST_TArgParser ():
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
     #FileName.txt -p1 "mn,mvnxsdv" /P2 3 -P3 5 -P4
     TEST_LUParserARG ()
     TEST_GetParam ()

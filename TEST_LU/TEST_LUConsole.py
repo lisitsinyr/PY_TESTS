@@ -37,8 +37,8 @@ import progress.bar
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-# import LULog
-# import LUConst
+import LULog
+import LUConst
 from LUDoc import *
 import LUConsole
 
@@ -52,15 +52,15 @@ def TEST_LUConsole ():
     PrintInfoObject(TEST_LUConsole)
     PrintInfoObject(LUConsole)
 
-    LULog.LoggerAPPS.info (sys.stdout.encoding)
-    LULog.LoggerAPPS.info (sys.stdout.name)
-    LULog.LoggerAPPS.info (sys.stdout.isatty())
-    LULog.LoggerAPPS.info (sys.stdout.mode)
+    LULog.LoggerAPPSAdd_info (sys.stdout.encoding)
+    LULog.LoggerAPPSAdd_info (sys.stdout.name)
+    LULog.LoggerAPPSAdd_info (sys.stdout.isatty())
+    LULog.LoggerAPPSAdd_info (sys.stdout.mode)
     # if sys.stdout.isatty ():
     if LUConsole.ISTerminal ():
-        LULog.LoggerAPPS.info ('Это терминал WINDOWS')
+        LULog.LoggerAPPSAdd_info ('Это терминал WINDOWS')
     else:
-        LULog.LoggerAPPS.info ('Это терминал piped or redirected')
+        LULog.LoggerAPPSAdd_info ('Это терминал piped or redirected')
     #endif
 #endfunction
 
@@ -229,6 +229,7 @@ def TEST_progress ():
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
 
     print (f'ISTerminal={LUConsole.ISTerminal ()}')
 

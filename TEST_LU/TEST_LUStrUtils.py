@@ -56,10 +56,10 @@ def TEST_ExtractWord ():
 
     s = 'один,два,три'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.ExtractWord (2, s, ',')
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #--------------------------------------------------------------------
@@ -73,10 +73,10 @@ def TEST_WordCount ():
 
     s = 'один,два,три'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     Num = LUStrUtils.WordCount (s, ',')
     s = f'Num={Num}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #--------------------------------------------------------------------
@@ -90,10 +90,10 @@ def TEST_ExistWord ():
 
     s = 'один,два,три'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     Bool = LUStrUtils.ExistWord (s, ',', 'два')
     s = F'Bool={Bool}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #--------------------------------------------------------------------
@@ -107,19 +107,19 @@ def TEST_AddChar ():
 
     s = 'Input'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     s = LUStrUtils.AddChar ('.', s, 20)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     s = '11'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     s = LUStrUtils.AddChar ('0', s, 3)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #--------------------------------------------------------------------
@@ -133,10 +133,10 @@ def TEST_AddCharR ():
 
     s = 'Input'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.AddCharR ('.', s, 20)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -150,10 +150,10 @@ def TEST_Trim ():
 
     s = '    Input    '
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.Trim (s)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -167,10 +167,10 @@ def TEST_TrimL ():
 
     s = '    Input    '
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.TrimL (s)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -184,10 +184,10 @@ def TEST_TrimR ():
 
     s = '    Input    '
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.TrimR (s)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -201,10 +201,10 @@ def TEST_TrimChar ():
 
     s = '....Input....'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.TrimChar (s, '.')
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -218,10 +218,10 @@ def TEST_TrimCharL ():
 
     s = '....Input....'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.TrimCharL (s, '.')
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -235,10 +235,10 @@ def TEST_TrimCharR ():
 
     s = '....Input....'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.TrimCharR (s, '.')
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -252,7 +252,7 @@ def TEST_MakeStr ():
 
     s = LUStrUtils.MakeStr('.', 20)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -266,7 +266,7 @@ def TEST_CharFromSet ():
 
     s = LUStrUtils.CharFromSet(LUStrUtils.cBrackets)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -280,7 +280,7 @@ def TEST_GetParamFromString ():
 
     s0 = "T:\b\files|T:\b\files||$SAVE|move,del|0"
     s = 'String IN='+s0
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     pPATHIN = 'PATHIN'
     pPATHOUT = 'PATHOUT'
@@ -294,27 +294,27 @@ def TEST_GetParamFromString ():
     LParamName = pPATHIN
     s = LUStrUtils.GetParamFromString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pPATHOUT
     s = LUStrUtils.GetParamFromString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pPATHOUTMAIL
     s = LUStrUtils.GetParamFromString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pWILDCARDS
     s = LUStrUtils.GetParamFromString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pOPERATIONS
     s = LUStrUtils.GetParamFromString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pActive
     s = LUStrUtils.GetParamFromString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -328,7 +328,7 @@ def TEST_SetParamToString ():
 
     s0 = "T:\\b\\files|T:\\b\\files||$SAVE|move,del|0"
     s = 'String IN='+s0
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     pPATHIN = 'PATHIN'
     pPATHOUT = 'PATHOUT'
@@ -342,22 +342,22 @@ def TEST_SetParamToString ():
 
     LParamName = pPATHIN
     s = LUStrUtils.SetParamToString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter, LValue)
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pPATHOUT
     s = LUStrUtils.SetParamToString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter, LValue)
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pPATHOUTMAIL
     s = LUStrUtils.SetParamToString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter, LValue)
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pWILDCARDS
     s = LUStrUtils.SetParamToString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter, LValue)
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pOPERATIONS
     s = LUStrUtils.SetParamToString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter, LValue)
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     LParamName = pActive
     s = LUStrUtils.SetParamToString (LParamName, s0, LParamNames, LUStrUtils.cWordDelimiter, LValue)
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -371,10 +371,10 @@ def TEST_DelChars ():
 
     s0 = "T:\\b\\files|T:\\b\\files||$SAVE|move,del|0"
     s = 'String IN='+s0
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.DelChars(s0, '|')
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -388,10 +388,10 @@ def TEST_DelSpaces ():
 
     s = "T:\\b\\files||$SAVE|move,del|0"
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.DelSpaces(s)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -405,10 +405,10 @@ def TEST_ReplaceChars ():
 
     s = 'TEST_ReplaceChars'
     s = 'String IN='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.ReplaceChars(s,'TEST','SUPER')
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -422,13 +422,13 @@ def TEST_CenterStr ():
 
     s0 = 'TEST_CenterStr'
     s = 'String IN='+s0
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.CenterStr('TEST_CenterStr',' ',len(s0)+20)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = LUStrUtils.CenterStr('TEST_CenterStr','-',len(s0)+20)
     s = 'String OUT='+s
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 #endfunction
 
 #---------------------------------------------------------------
@@ -450,6 +450,8 @@ def TEST_PrintableStr ():
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
     TEST_LUStrUtils ()
     TEST_ExtractWord ()
     TEST_WordCount ()

@@ -25,22 +25,24 @@ __annotations__ = """
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-# import LULog
-# import LUConst
+import LUConst
+import LULog
 from LUDoc import *
 
-def TEST_ ():
+def TEST_01 ():
     """TEST_"""
 #beginfunction
-    PrintInfoObject('-----TEST_----')
-    PrintInfoObject(TEST_)
+    PrintInfoObject('-----TEST_01----')
+    PrintInfoObject(TEST_01)
 #endfunction
 
 #------------------------------------------
 def main ():
 #beginfunction
-    TEST_ ()
-    ...
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
+    TEST_01 ()
+
 #endfunction
 
 #------------------------------------------

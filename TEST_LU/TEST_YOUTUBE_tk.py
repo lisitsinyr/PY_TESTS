@@ -127,6 +127,8 @@ def TEST_YOUTUBE_tk ():
 #------------------------------------------
 def Main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
     TEST_YOUTUBE_tk ()
     ...
 #endfunction

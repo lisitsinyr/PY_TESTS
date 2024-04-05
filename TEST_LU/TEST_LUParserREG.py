@@ -55,42 +55,42 @@ def TEST_TREGParser ():
                         r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders',
                         LKeyName)
     s = f'{LValue}, {LType}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     LDefault = LTREGParser.GetKeyReg(LUParserREG.THKEYConst.cHKCU,
                         r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders', '')
-    LULog.LoggerAPPS.log (LULog.TEXT, LDefault)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LDefault)
     #------------------------------
     # QueryInfoKeyReg
     #------------------------------
     LInfo = LTREGParser.QueryInfoKeyReg(LUParserREG.THKEYConst.cHKCU,
                         r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders')
-    LULog.LoggerAPPS.log (LULog.TEXT, LInfo)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LInfo)
     #------------------------------
     # EnumKeyReg
     #------------------------------
     LListKey = LTREGParser.EnumKeyReg(LUParserREG.THKEYConst.cHKCU,
                         r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders')
-    LULog.LoggerAPPS.log (LULog.TEXT, LListKey)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LListKey)
     #------------------------------
     # GetOptionsReg
     #------------------------------
     LSection = r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
     LListKey = LTREGParser.GetOptionsReg(LUParserREG.THKEYConst.cHKCU, LSection)
-    LULog.LoggerAPPS.log (LULog.TEXT, LListKey)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LListKey)
     #------------------------------
     # EnumValueReg
     #------------------------------
     LSection = r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
     LListKeyValue = LTREGParser.EnumValueReg(LUParserREG.THKEYConst.cHKCU, LSection)
-    LULog.LoggerAPPS.log (LULog.TEXT, LListKeyValue)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LListKeyValue)
     #------------------------------
     # IsSection
     #------------------------------
     LSection = r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
     LResult = LTREGParser.IsSection(LUParserREG.THKEYConst.cHKCU, LSection)
     s = f'{LResult} - {LSection}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     #------------------------------
     # IsOption
     #------------------------------
@@ -99,9 +99,9 @@ def TEST_TREGParser ():
     LOption = 'My Music'
     LResult = LTREGParser.IsOption(LUParserREG.THKEYConst.cHKCU, LSection, LOption)
     s = f'{LSection}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
     s = f'{LResult} - {LOption}'
-    LULog.LoggerAPPS.log (LULog.TEXT, s)
+    LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
     #------------------------------
     LSystemAPP = 'TEST_LU'
@@ -197,11 +197,11 @@ def TEST_GetFolderCU():
                          0, KEY_ALL_ACCESS) as LKey:
         LValue, LType = QueryValueEx (LKey, LKeyName)
         s = f'{LValue}, {LType}'
-        LULog.LoggerAPPS.log (LULog.TEXT, s)
+        LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
         LDefault = QueryValue (LKey, None)
         s = F'Default=,{LDefault}'
-        LULog.LoggerAPPS.log (LULog.TEXT, s)
+        LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
         # l = EnumKey(LKey, 0)
         # LWork = QueryInfoKey (LKey)
@@ -214,6 +214,8 @@ def TEST_GetFolderCU():
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
     TEST_LUParserREG ()
     TEST_TREGParser ()
     TEST_GetFolderCU()

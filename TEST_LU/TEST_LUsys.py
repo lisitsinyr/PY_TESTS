@@ -41,6 +41,8 @@ def TEST_LUsys ():
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
     TEST_LUsys ()
     ...
 #endfunction

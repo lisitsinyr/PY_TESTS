@@ -63,7 +63,7 @@ def TEST_TINIFile ():
     LSectionName = 'general_ERROR'
     LOptionName = 'OptionName 03'
     LOptionValue = LINIFile.GetOption(LSectionName, LOptionName, 'Default')
-    LULog.LoggerAPPS.log (LULog.TEXT, LOptionValue)
+    LULog.LoggerAPPSAdd (LULog.TEXT, LOptionValue)
 
     LSectionName = 'general 03'
     LOptionName = 'OptionName 03'
@@ -73,12 +73,12 @@ def TEST_TINIFile ():
 
     for Section in LINIFile.Sections:
         s = f'SectionName={Section}'
-        LULog.LoggerAPPS.log (LULog.TEXT, s)
+        LULog.LoggerAPPSAdd (LULog.TEXT, s)
 
         LINIFile.SectionName = Section
         for Option in LINIFile.Options:
             s = f'    OptionName={Option}'
-            LULog.LoggerAPPS.log (LULog.TEXT, s)
+            LULog.LoggerAPPSAdd (LULog.TEXT, s)
         #endfor
     #endfor
 
@@ -104,11 +104,11 @@ def TEST_TINIFile_02 ():
 
     for Section in LINIFile.Sections:
         s = f'SectionName={Section}'
-        LULog.LoggerAPPS.log (LULog.TEXT, s)
+        LULog.LoggerAPPSAdd (LULog.TEXT, s)
         LINIFile.SectionName = Section
         for Option in LINIFile.Options:
             s = f'    OptionName={Option}'
-            LULog.LoggerAPPS.log (LULog.TEXT, s)
+            LULog.LoggerAPPSAdd (LULog.TEXT, s)
         #endfor
     #endfor
 #endfunction
@@ -116,6 +116,8 @@ def TEST_TINIFile_02 ():
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
     TEST_LUParserINI ()
     TEST_TINIFile ()
     TEST_TINIFile_02 ()

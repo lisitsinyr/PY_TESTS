@@ -187,12 +187,12 @@ def TEST_YOUTUBE_03_YouTubeObjectsItem_Thread ():
     # Остался главный поток python
     for tread in threading.enumerate():
         s = f'Остался главный поток python={tread}'
-        LULog.LoggerAPPS.info(s)
+        LULog.LoggerAPPSAdd_info(s)
 
     # for i in range (len(LTYouTube.YouTubeObjectsCollection)):
     #     LYouTubeObjectsItem: LUYouTube.TYouTubeObjectsItem = LTYouTube.YouTubeObjectsCollection[i]
     #     s = f'LYouTubeObjectsItem.YouTubeObject.URL={LYouTubeObjectsItem.YouTubeObject.URL}'
-    #     LULog.LoggerAPPS.info(s)
+    #     LULog.LoggerAPPSAdd_info(s)
     # #endfor
 #endfunction
 
@@ -295,7 +295,7 @@ def TEST_YOUTUBE_05_YouTubeObject_Thread ():
     # Остался главный поток python
     for tread in threading.enumerate ():
         s = f'Остался главный поток python={tread}'
-        LULog.LoggerAPPS.info(s)
+        LULog.LoggerAPPSAdd_info(s)
     #endfor
 #endfunction
 
@@ -309,10 +309,10 @@ def job ():
         LUFile.ForceDirectories (CPATH)
     #endif
 
-    LULog.LoggerAPPS.info ('job ()')
+    LULog.LoggerAPPSAdd_info ('job ()')
     last_copied = pyperclip.paste ()
     if last_copied not in clipboard and ("www.youtube.com" in last_copied or "youtu.be" in last_copied):
-        LULog.LoggerAPPS.info (last_copied)
+        LULog.LoggerAPPSAdd_info (last_copied)
         clipboard.append (last_copied)
 
         LURLs = dict ()
@@ -343,7 +343,7 @@ def job ():
         # for item in Llist:
         #     LYouTubeObject: LUObjectsYT.TYouTubeObject = item
         #     s = LYouTubeObject.URL
-        #     LULog.LoggerAPPS.info (s)
+        #     LULog.LoggerAPPSAdd_info (s)
         #     Lfilename_prefix = 'test'
         #     Lfilename_prefix = ''
         #     try:
@@ -352,6 +352,7 @@ def job ():
         #     except str(pytube.exceptions.VideoUnavailable) as ERROR:
         #         s = 'Ошибка загрузки! '+ERROR
         #         LULog.LoggerAPPS.exception (s, exc_info=True, stack_info=True)
+        #         LULog.LoggerAPPSAdd_exception (s, exc_info=True, stack_info=True)
         #     #endtry
         # #endfor
     #endif
@@ -376,7 +377,7 @@ def TEST_YOUTUBE_06_YouTubeObject_Thread_Cliboard ():
     # Остался главный поток python
     for tread in threading.enumerate ():
         s = f'Остался главный поток python={tread}'
-        LULog.LoggerAPPS.info(s)
+        LULog.LoggerAPPSAdd_info(s)
 #endfunction
 
 #------------------------------------------
@@ -384,6 +385,8 @@ def TEST_YOUTUBE_06_YouTubeObject_Thread_Cliboard ():
 #------------------------------------------
 def Main ():
 #beginfunction
+    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
     TEST_YOUTUBE_Proc ()
 
     #--------- TYouTube -----------------
