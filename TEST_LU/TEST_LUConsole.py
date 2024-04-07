@@ -52,15 +52,15 @@ def TEST_LUConsole ():
     PrintInfoObject(TEST_LUConsole)
     PrintInfoObject(LUConsole)
 
-    LULog.LoggerAPPSAdd_info (sys.stdout.encoding)
-    LULog.LoggerAPPSAdd_info (sys.stdout.name)
-    LULog.LoggerAPPSAdd_info (sys.stdout.isatty())
-    LULog.LoggerAPPSAdd_info (sys.stdout.mode)
+    LULog.LoggerAPPS_AddInfo (sys.stdout.encoding)
+    LULog.LoggerAPPS_AddInfo (sys.stdout.name)
+    LULog.LoggerAPPS_AddInfo (sys.stdout.isatty())
+    LULog.LoggerAPPS_AddInfo (sys.stdout.mode)
     # if sys.stdout.isatty ():
     if LUConsole.ISTerminal ():
-        LULog.LoggerAPPSAdd_info ('Это терминал WINDOWS')
+        LULog.LoggerAPPS_AddInfo ('Это терминал WINDOWS')
     else:
-        LULog.LoggerAPPSAdd_info ('Это терминал piped or redirected')
+        LULog.LoggerAPPS_AddInfo ('Это терминал piped or redirected')
     #endif
 #endfunction
 

@@ -55,7 +55,7 @@ def TEST_GetLogFileName ():
     PrintInfoObject(TEST_GetLogFileName)
 
     s = LULog.GetLogFileName()
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_GetLogFileNameSufix ():
@@ -65,7 +65,7 @@ def TEST_GetLogFileNameSufix ():
     PrintInfoObject(TEST_GetLogFileNameSufix)
 
     s = LULog.GetLogFileNameSufix('sufix')
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_Log_KIX ():
@@ -471,7 +471,7 @@ def __GetARGS ():
     if not GArgParser is None:
         GArgParser.Clear()
         GArgParser.ArgParser.description = GArgParser.ArgParser.description+' '+'TEST_LULog.py'
-        LULog.LoggerAPPSAdd (LULog.TEXT, GArgParser.ArgParser.description)
+        LULog.LoggerAPPS_AddLevel (LULog.TEXT, GArgParser.ArgParser.description)
         if GArgParser.Args is None:
             GArgParser.ReadARGS (LArgs)
             # print (GArgParser.Args)
@@ -487,7 +487,7 @@ def __GetARGS ():
             # print (f'lfj = {GArgParser.ArgsDICT["lfj"]}')
             # print (f'ini = {GArgParser.ArgsDICT["ini"]}')
         else:
-            LULog.LoggerAPPSAdd (GArgParser.Args)
+            LULog.LoggerAPPS_AddLevel (GArgParser.Args)
         #endif
     #endif
 #endfunction
@@ -521,7 +521,7 @@ def __GetINI ():
         # LFileLog = LUFile.ExpandFileName(LFileLog)
         GINIFile.SetOption ('handler_FILE_01', 'args', "('" + LLogFile + "',)")
     #endif
-    LULog.LoggerAPPSAdd (LULog.TEXT, LLogFile)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LLogFile)
 #endfunction
 
 #------------------------------------------

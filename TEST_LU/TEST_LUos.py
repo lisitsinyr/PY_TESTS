@@ -39,9 +39,9 @@ def TEST_LUos ():
     PrintInfoObject('---------TEST_LUos----------')
     PrintInfoObject(TEST_LUos)
     s = 'os.name->',os.name
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
     s = "os.environ['PYTHONPATH']->", os.environ['PYTHONPATH']
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
     ...
 #endfunction
 
@@ -52,9 +52,9 @@ def TEST_GetEnvVar ():
     PrintInfoObject(TEST_GetEnvVar)
 
     s = f'LUos.cHOME={LUos.GetEnvVar (LUos.cHOME)}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
     s = f'LUos.cWINDIR={LUos.GetEnvVar (LUos.cWINDIR)}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_SetEnvVar ():
@@ -65,7 +65,7 @@ def TEST_SetEnvVar ():
 
     LUos.SetEnvVar(LUos.cTEST,'ValueTEST')
     s = LUos.GetEnvVar (LUos.cTEST)
-    LULog.LoggerAPPSAdd (LULog.TEXT, f'{LUos.cTEST}={s}')
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'{LUos.cTEST}={s}')
     ...
 #endfunction
 
@@ -76,11 +76,11 @@ def TEST_TFolders ():
     PrintInfoObject(TEST_TFolders)
 
     LULog.PrintHandlers (LULog.LoggerAPPS)
-    LULog.LoggerAPPSAdd_debug('LULogger.debug')
+    LULog.LoggerAPPS_AddDebug('LULogger.debug')
     LTFolders = LUos.TFolders()
     s = f'LTFolders.cuDesktop={LTFolders.cuDesktop}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
-    LULog.LoggerAPPSAdd_info (s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddInfo (s)
     ...
 #endfunction
 

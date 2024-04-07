@@ -133,7 +133,7 @@ def TEST_ShedulerThreasd ():
     # Остался главный поток python
     for tread in threading.enumerate ():
         s = f'Остался главный поток python={tread}'
-        LULog.LoggerAPPSAdd_info(s)
+        LULog.LoggerAPPS_AddInfo(s)
     #endfor
 #endfunction
 
@@ -191,7 +191,7 @@ def TEST_ShedulerTimer ():
     # Остался главный поток python
     for tread in threading.enumerate ():
         s = f'Остался главный поток python={tread}'
-        LULog.LoggerAPPSAdd_info(s)
+        LULog.LoggerAPPS_AddInfo(s)
     #endfor
 #endfunction
 

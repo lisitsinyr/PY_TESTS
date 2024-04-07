@@ -50,15 +50,15 @@ def TEST_DirectoryExists ():
 
     b = LUFile.DirectoryExists (LPath1)
     s = f'Директория: {LPath1} {b}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     b = LUFile.DirectoryExists (LPath2)
     s = f'Директория: {LPath2} {b}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     b = LUFile.DirectoryExists (LPath3)
     s = f'Директория: {LPath3} {b}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_ForceDirectories ():
@@ -72,7 +72,7 @@ def TEST_ForceDirectories ():
     LUFile.ForceDirectories (LPath0)
     b = LUFile.DirectoryExists (LPath0)
     s = f'Директория: {LPath0} {b}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_GetFileDateTime ():
@@ -85,13 +85,13 @@ def TEST_GetFileDateTime ():
 
     b = LUFile.FileExists (LFileName)
     s = f'Файл: {LFileName} {b}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LDateTime = LUFile.GetFileDateTime(LFileName)
     s = f'Файл: {LFileName} {LDateTime}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
     s = f'Время последней записи: {LDateTime[0]} Время создания: {LDateTime[1]}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_WriteStrToFile ():
@@ -113,42 +113,42 @@ def TEST_Extract_Get ():
     PrintInfoObject(TEST_Extract_Get)
 
     s = f'Файл: {LFileName0}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     s = LUFile.ExpandFileName (LFileName0)
     s = f'Файл: {s}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LFileDir = LUFile.ExtractFileDir (s)
     s = f'FileDir: {LFileDir}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LFileName = LUFile.ExtractFileName (s)
     s = f'FileName: {LFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LFileName = LUFile.ExtractFileNameWithoutExt (s)
     s = f'FileName: {LFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LFileExt = LUFile.ExtractFileExt (s)
     s = f'FileExt: {LFileExt}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LFileDir = LUFile.GetFileDir (s)
     s = f'FileDir: {LFileDir}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LFileName = LUFile.GetFileName (s)
     s = f'FileName: {LFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 
     LFileExt = LUFile.GetFileExt (s)
     s = f'FileExt: {LFileExt}'
 
     LFileName = LUFile.GetFileNameWithoutExt (s)
     s = f'FileName: {LFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_GetFileEncoding ():
@@ -165,7 +165,7 @@ def TEST_GetFileEncoding ():
         LEncoding = LUFile.cDefaultEncoding
     LFile = open (LFileName, 'r', encoding = LEncoding)
     for s in LFile:
-        LULog.LoggerAPPSAdd (LULog.TEXT, s[:-1])
+        LULog.LoggerAPPS_AddLevel (LULog.TEXT, s[:-1])
     LFile.close()
 #endfunction
 
@@ -180,9 +180,9 @@ def TEST_IncludeTrailingBackslash ():
     LPath11 = LUFile.IncludeTrailingBackslash(LPath1)
     LPath21 = LUFile.IncludeTrailingBackslash(LPath2)
     s = f'LPath11: {LPath11}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
     s = f'LPath21: {LPath21}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_GetDirNameYYMMDD ():
@@ -197,9 +197,9 @@ def TEST_GetDirNameYYMMDD ():
     LDirNameYYMMDD1: str = LUFile.GetDirNameYYMMDD(LPath1, LNow)
     LDirNameYYMMDD2: str = LUFile.GetDirNameYYMMDD(LPath2, LNow)
     s = f'LDirNameYYMMDD1: {LDirNameYYMMDD1}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
     s = f'LDirNameYYMMDD2: {LDirNameYYMMDD2}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_GetDirNameYYMM ():
@@ -214,9 +214,9 @@ def TEST_GetDirNameYYMM ():
     LDirNameYYMM1: str = LUFile.GetDirNameYYMM(LPath1, LNow)
     LDirNameYYMM2: str = LUFile.GetDirNameYYMM(LPath2, LNow)
     s = f'LDirNameYYMMDD1: {LDirNameYYMM1}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
     s  = f'LDirNameYYMMDD2: {LDirNameYYMM2}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_GetTempDir ():
@@ -227,7 +227,7 @@ def TEST_GetTempDir ():
 
     LTempDir: str = LUFile.GetTempDir()
     s = f'LTempDir: {LTempDir}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_SearchFile ():
@@ -239,7 +239,7 @@ def TEST_SearchFile ():
     LFileName = 'TEST_LUFile.py'
     LFullFileName = LUFile.SearchFile(LFileName,'.py')
     s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_SearchINIFile ():
@@ -251,7 +251,7 @@ def TEST_SearchINIFile ():
     LFileName = 'TEST_LU.ini'
     LFullFileName = LUFile.SearchFile(LFileName,'.ini')
     s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_SearchEXEFile ():
@@ -263,7 +263,7 @@ def TEST_SearchEXEFile ():
     LFileName = 'python.exe'
     LFullFileName = LUFile.SearchFile(LFileName,'.exe')
     s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 def TEST_FileSearch ():
@@ -279,7 +279,7 @@ def TEST_FileSearch ():
     LPath = LUos.GetCurrentDir() + ';' + LWinDir
     LFullFileName = LUFile.FileSearch (LFileName, LPath)
     s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPSAdd (LULog.TEXT, s)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 #------------------------------------------
@@ -296,7 +296,7 @@ def main ():
     except LUErrors.LUFileError_FileERROR as ERROR:
         ERROR.Message = 'Тестовое сообщение'
         s = f'!!!! {ERROR}'
-        LULog.LoggerAPPSAdd_error(s)
+        LULog.LoggerAPPS_AddError(s)
     else:
         ...
     #endtry

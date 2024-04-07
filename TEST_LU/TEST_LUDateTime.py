@@ -49,22 +49,22 @@ def TEST_LogDateStr ():
 
     PrintInfoObject (f'------------{LUDateTime.cFormatDateTimeLog01}')
     s1 = LUDateTime.DateTimeStr(False, LToday, LUDateTime.cFormatDateTimeLog01,Amsecs = True)
-    LULog.LoggerAPPSAdd (LULog.TEXT, s1)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s1)
 
     s2 = LUDateTime.DateTimeStr(True, LToday, LUDateTime.cFormatDateTimeLog01,Amsecs = True)
-    LULog.LoggerAPPSAdd (LULog.TEXT, s2)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s2)
 
     PrintInfoObject (f'------------{LUDateTime.cFormatDateTimeLog02}')
     s1 = LUDateTime.DateTimeStr(False, LToday, LUDateTime.cFormatDateTimeLog02,Amsecs = True)
-    LULog.LoggerAPPSAdd (LULog.TEXT, s1)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s1)
     s2 = LUDateTime.DateTimeStr(True, LToday, LUDateTime.cFormatDateTimeLog02,Amsecs = True)
-    LULog.LoggerAPPSAdd (LULog.TEXT, s2)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s2)
 
     PrintInfoObject (f'------------{LUDateTime.cFormatDateTimeLog05}')
     s1 = LUDateTime.DateTimeStr(False, LToday, LUDateTime.cFormatDateTimeLog05,Amsecs = True)
-    LULog.LoggerAPPSAdd (LULog.TEXT, s1)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s1)
     s2 = LUDateTime.DateTimeStr(True, LToday, LUDateTime.cFormatDateTimeLog05,Amsecs = True)
-    LULog.LoggerAPPSAdd (LULog.TEXT, s2)
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s2)
 #endfunction
 
 def TEST_DecodeDate ():
@@ -74,7 +74,7 @@ def TEST_DecodeDate ():
     PrintInfoObject(TEST_DecodeDate)
 
     LYMD = LUDateTime.DecodeDate (LUDateTime.Now ())
-    LULog.LoggerAPPSAdd_info (LYMD)
+    LULog.LoggerAPPS_AddInfo (LYMD)
 #endfunction
 
 def TEST_EncodeDate ():
@@ -85,7 +85,7 @@ def TEST_EncodeDate ():
 
     LYear, LMonth, LDay = LUDateTime.DecodeDate (LUDateTime.Now ())
     LDate = LUDateTime.EncodeDate(LYear, LMonth, LDay)
-    LULog.LoggerAPPSAdd_info (LDate)
+    LULog.LoggerAPPS_AddInfo (LDate)
 #endfunction
 
 def TEST_DayOfWeek ():
@@ -96,7 +96,7 @@ def TEST_DayOfWeek ():
 
     LYear, LMonth, LDay = LUDateTime.DecodeDate (LUDateTime.Now ())
     LDate = LUDateTime.EncodeDate(LYear, LMonth, LDay)
-    LULog.LoggerAPPSAdd_info (LDate)
+    LULog.LoggerAPPS_AddInfo (LDate)
 
     # LDayWeek = LUDateTime.DayOfWeek (LUDateTime.EncodeDate (LYear, LMonth, LDay))
     LDayWeek = LUDateTime.DayOfWeek (LDate)
@@ -124,7 +124,7 @@ def TEST_GenerateObjectIDStr ():
 
     LObjectIDStr = LUDateTime.GenerateObjectIDStr (LUDateTime.Now ())
     s = f'LObjectIDStr={LObjectIDStr}'
-    LULog.LoggerAPPSAdd_info (s)
+    LULog.LoggerAPPS_AddInfo (s)
 #endfunction
 
 #------------------------------------------
