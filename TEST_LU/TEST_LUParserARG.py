@@ -177,7 +177,8 @@ def TEST_TArgParser ():
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
+                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
     #FileName.txt -p1 "mn,mvnxsdv" /P2 3 -P3 5 -P4
     TEST_LUParserARG ()

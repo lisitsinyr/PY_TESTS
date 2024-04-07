@@ -114,7 +114,8 @@ def TEST_05 ():
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
+                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
     TEST_LUSupport ()
     TEST_01 ()

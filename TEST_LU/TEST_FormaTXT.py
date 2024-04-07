@@ -76,8 +76,8 @@ def main ():
         encodingFILE = cDefaultEncoding
     #endif
 
-    #!!!! with open(filename, 'r') as file:
-    with open(filename, 'r', encoding='utf8') as file:
+    with open(filename, 'r') as file:
+    # with open(filename, 'r', encoding='utf8') as file:
         content = file.read()
 
     #!!!! paragraphs = content.split('\r\n')

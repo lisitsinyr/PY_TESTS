@@ -90,7 +90,8 @@ def TEST_schedule_02 ():
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
+                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
     TEST_schedule ()
     TEST_schedule_01 ()
