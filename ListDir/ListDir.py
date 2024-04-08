@@ -52,7 +52,7 @@ if NLevel is None:
 #БИБЛИОТЕКА LU
 #------------------------------------------
 import LUConst
-import LUStrings
+import LUStrUtils
 import LUSupport
 #------------------------------------------
 
@@ -121,7 +121,7 @@ def WorkFile (AFile_path):
 #-------------------------------------------------------------------------------
 def ListFile (ASourcePath, AMask):
 #beginfunction
-    LFiles: LListFiles [str] = os.listdir (ASourcePath)
+    LFiles = os.listdir (ASourcePath)
     for LFile in LFiles:
         LSourcePath = os.sep.join ([ASourcePath, LFile])
         if os.path.isfile (LSourcePath):
@@ -151,7 +151,7 @@ def ListDir (ASourcePath, AMask):
             print (1,message)
         #endif
     #endif
-    LFiles: LListFiles[str] = os.listdir (ASourcePath)
+    LFiles = os.listdir (ASourcePath)
     for LFile in LFiles:
         LSourcePath = os.sep.join ([ASourcePath, LFile])
         #Lstats = os.stat (LSourcePath)
@@ -177,10 +177,8 @@ def main():
 #beginfunction
     global Log
     global Shablon
-    print (LUConst.Userid)
-    print ("Кодировка")
-    Dir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TOOLS_PY'
-    Dir = os.getcwd()
+    Dir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    # Dir = os.getcwd()
     match Format:
         case 1:
             Log = 'sfile.ini'
@@ -192,7 +190,6 @@ def main():
             Log = 'sdir.bat'
             Shablon = Shablon0
     #endmatch
-    print ('PYDir   = '+PYDir)
     print ('Log     = '+Log)
     print ('Dir     = '+Dir)
     print ('Format  = ',Format)
