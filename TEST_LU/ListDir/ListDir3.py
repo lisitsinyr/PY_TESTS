@@ -107,7 +107,7 @@ def TEST_01 ():
     PrintInfoObject(TEST_01)
     _OutFile = 'ListDir.txt'
     LUFile.FileDelete (_OutFile)
-    LUFileUtils.ListDir(GDir, GMask, _OutFile, 11, FuncDir, FuncFile)
+    LUFileUtils.ListDir(GDir, GMask, _OutFile, 11, FuncDir, FuncFile, sys.maxsize)
 #endfunction
 
 #------------------------------------------
