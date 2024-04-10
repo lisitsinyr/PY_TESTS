@@ -1,8 +1,16 @@
-#=======================================================================================
-#ListDir.py
-#python.exe ListDir.py "PYDir=%PYDIR%" "Format=%1" "NLevel=%2"
-#=======================================================================================
+"""
+ =======================================================
+ Copyright (c) 2024
+ Author:
+     Lisitsin Y.R.
+ Project:
+     PATTERNS_PY
+     Python (PROJECTS_PY)
+ Module:
+     ListDir.py
 
+ =======================================================
+"""
 #------------------------------------------
 #БИБЛИОТЕКИ
 #------------------------------------------
@@ -15,24 +23,40 @@ import os
 import sys
 
 #------------------------------------------
+# БИБЛИОТЕКИ LU
+#------------------------------------------
+import LUConst
+import LUStrUtils
+import LUSupport
+import LUFileUtils
+import LULog
+
+#------------------------------------------
+#CONST
+#------------------------------------------
+GLevel: int = 0
+GMask: str = "*.*"
+GLog: str = ""
+GDir: str = ""
+GShablon: str = ""
+
+#------------------------------------------
+DirName: str = ""
+Shablon: str = ""
+Shablon0: str = 'call arjd.bat \"{DirName}\"'
+Shablon1: str = "{FullFileDir} {FileName} {FileTime} {FileSize}"
+Shablon2: str = "{FileName={FullFileName}|{FullFileDir}|{FileDir}"
+#------------------------------------------
+
+#------------------------------------------
 # Разбор аргументов
 #------------------------------------------
 parser = argparse.ArgumentParser(description='Параметры')
-parser.add_argument('-PYDir', type=str, nargs='?', default='', dest='PYDir', help='Библиотека')
 parser.add_argument('-Format', type=int, nargs='?', default=-1, dest='Format', help='Номер шаблона')
 parser.add_argument('-NLevel', type=int, nargs='?', default=-1, dest='NLevel', help='Уровень')
 args = parser.parse_args()
-print('-PYDir  = '+args.PYDir)
 print('-Format =',args.Format)
 print('-NLevel =',args.NLevel)
-#------------------------------------------
-PYDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TOOLS_PY\\PY'
-if args.PYDir != "":
-    PYDir = args.PYDir
-#endif
-sys.path.append(PYDir)
-print(PYDir)
-print(sys.path)
 #------------------------------------------
 Format: int = 0
 if args.Format != -1:
@@ -49,159 +73,73 @@ if NLevel is None:
 #------------------------------------------
 
 #------------------------------------------
-#БИБЛИОТЕКА LU
+# FuncDir ()
 #------------------------------------------
-import LUConst
-import LUStrUtils
-import LUSupport
-#------------------------------------------
-
-#------------------------------------------
-#CONST
-#------------------------------------------
-Level: int = 0
-Mask: str = "*.*"
-Log: str = ""
-#------------------------------------------
-DirName: str = ""
-Shablon: str = ""
-Shablon0: str = 'call arjd.bat \"{DirName}\"'
-Shablon1: str = "{FullFileDir} {FileName} {FileTime} {FileSize}"
-Shablon2: str = "{FileName={FullFileName}|{FullFileDir}|{FileDir}"
-#------------------------------------------
-
-def GetFileName (AFileSpec: str):
-    pass
-    # LGetFileName = AFileSpec
-    # bash = instrRev (AFileSpec, "\\")
-    # if bash or instrRev (AFileSpec, "."):
-    #  GetFileName = substr (AFileSpec, bash+1)
-    # endif
-#endfunction
-
-# -------------------------------------------------------------------------------
-# WorkFile (AFile_path)
-# -------------------------------------------------------------------------------
-def WorkFile (AFile_path):
-    global Shablon
+def FuncDir (ADir: os.DirEntry):
+    """FuncDir"""
 #beginfunction
-    LFileNameSource: str = AFile_path
-    LFullFileName: str = LFileNameSource
-    LFileName: str = os.path.basename(LFullFileName)
-    LFileSize: int = os.path.getsize(LFullFileName)
-    LFileDir: str = os.path.dirname(LFullFileName)
-
-    #-------------------------------------------------------------------------
-    #LFileTimeSource = GetFileTime(LFileNameSource)
-    #-------------------------------------------------------------------------
-    #file modification
-    LFileTimeSource = os.path.getmtime(LFileNameSource)
-    #convert timestamp into DateTime object
-    LFileTimeSource = datetime.datetime.fromtimestamp(LFileTimeSource)
-    #file creation
-    LFileTimeSource = os.path.getctime(LFileNameSource)
-    #convert creation timestamp into DateTime object
-    LFileTimeSource = datetime.datetime.fromtimestamp(LFileTimeSource)
-
-    #-------------------------------------------------------------------------
-    if Shablon == Shablon1:
-        #Shablon1: str = '{FullFileDir} {FileName} {FileTime} {FileSize}'
-        message = Shablon.format(FullFileDir=LFullFileName,FileName=LFileName,FileTime=LFileTimeSource,FileSize=LFileSize)
-        print (message)
-    #endif
-    if Shablon == Shablon2:
-        #Shablon2: str = '{FileName={FullFileName}|{FullFileDir}|{FileDir}'
-        message = Shablon.format(FileName=LFileName,FullFileName=LFullFileName,FullFileDir=LFullFileName,FileDir=LFileDir)
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, ADir.path)
+    # Lstat = os.stat(AFile.name)
+    # print('stat_name:',Lstat)
+    # Lstat = os.stat(AFile.path)
+    # print('stat_path:',Lstat)
+    print (GLevel, NLevel)
+    if GShablon == Shablon0:
+        message = GShablon.format (DirName = ADir.name)
         print (message)
     #endif
 #endfunction
 
-#-------------------------------------------------------------------------------
-# ListFile (ASourcePath, AMask)
-#-------------------------------------------------------------------------------
-def ListFile (ASourcePath, AMask):
+#------------------------------------------
+# FuncFile ()
+#------------------------------------------
+def FuncFile (AFile: os.DirEntry):
+    """FuncFile"""
 #beginfunction
-    LFiles = os.listdir (ASourcePath)
-    for LFile in LFiles:
-        LSourcePath = os.sep.join ([ASourcePath, LFile])
-        if os.path.isfile (LSourcePath):
-            #Это файл
-            #Lstats = os.stat (LSourcePath)
-            WorkFile (LSourcePath)
-        #endif
-    #endfor
-#endfunction
-
-#-------------------------------------------------------------------------------
-# ListDir (ASourcePath, AMask)
-#-------------------------------------------------------------------------------
-def ListDir (ASourcePath, AMask):
-    global Level
-#beginfunction
-    Level = Level + 1
-    #------------------------------------------------------------
-    # Dir
-    #------------------------------------------------------------
-    #DirName = GetFileName(ASourcePath)
-    LDirName = os.path.basename (ASourcePath)
-    LFullDirName = ASourcePath
-    if Level > NLevel:
-        if Shablon == Shablon0:
-            message = Shablon.format (DirName=LDirName)
-            print (1,message)
-        #endif
-    #endif
-    LFiles = os.listdir (ASourcePath)
-    for LFile in LFiles:
-        LSourcePath = os.sep.join ([ASourcePath, LFile])
-        #Lstats = os.stat (LSourcePath)
-        if os.path.isdir (LSourcePath):
-            #Это каталог
-            ListFile (LSourcePath, AMask)
-            #WorkFile(LSourcePath)
-            #--------------------------------------------------------
-            #if Shablon == Shablon0:
-            #    message = Shablon.format(DirName=LFile)
-            #    print(2,message)
-            ##endif
-            #--------------------------------------------------------
-            if NLevel >= Level:
-                ListDir (LSourcePath, AMask)
-            #endif
-        #endif
-    #endfor
-    Level = Level - 1
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile.path)
+    # Lstat = os.stat(AFile.name)
+    # print('stat_name:',Lstat)
+    # Lstat = os.stat(AFile.path)
+    # print('stat_path:',Lstat)
+    ...
 #endfunction
 
 def main():
 #beginfunction
-    global Log
-    global Shablon
-    Dir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
-    # Dir = os.getcwd()
+    global GDir
+    global GLog
+    global GShablon
+
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI, 'LOG_INIT',
+                    'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+
+    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    # GDir = os.getcwd()
     match Format:
         case 1:
-            Log = 'sfile.ini'
-            Shablon = Shablon1
+            GLog = 'sfile.ini'
+            GShablon = Shablon1
         case 2:
-            Log = 'sfile.ini'
-            Shablon = Shablon2
+            GLog = 'sfile.ini'
+            GShablon = Shablon2
         case _:
-            Log = 'sdir.bat'
-            Shablon = Shablon0
+            GLog = 'sdir.bat'
+            GShablon = Shablon0
     #endmatch
-    print ('Log     = '+Log)
-    print ('Dir     = '+Dir)
+    print ('GDir     = '+GDir)
+    print ('GMask    = '+GMask)
+    print ('GLog     = '+GLog)
+    print ('GShablon = '+GShablon)
+
     print ('Format  = ',Format)
     print ('NLevel  = ',NLevel)
-    print ('Mask    = '+Mask)
-    print ('Shablon = '+Shablon)
-    ListDir (Dir, Mask)
+
+    # ListDir (GDir, GMask)
+    LUFileUtils.ListDir(GDir, GMask, '', 0, FuncDir, FuncFile, NLevel)
 #endfunction
 
-#------------------------------------------
-# Делаем изменение в первом branch
-# Делаем изменение в первом branch 11.01.2023
 #------------------------------------------
 #beginmodule
 if __name__ == "__main__":

@@ -7,7 +7,7 @@
      PATTERNS_PY
      Python (PROJECTS_PY)
  Module:
-     ListDir2.py
+     ScanFile.py
 
  =======================================================
 """
@@ -64,25 +64,6 @@ import LUYouTube
 #------------------------------------------
 #CONST
 #------------------------------------------
-GLevel: int = 0
-GMask: str = "*.*"
-GLog: str = ""
-GDir: str = ""
-GShablon: str = ""
-
-#------------------------------------------
-DirName: str = ""
-Shablon: str = ""
-Shablon0: str = 'call arjd.bat \"{DirName}\"'
-Shablon1: str = "{FullFileDir} {FileName} {FileTime} {FileSize}"
-Shablon2: str = "{FileName={FullFileName}|{FullFileDir}|{FileDir}"
-#------------------------------------------
-
-#------------------------------------------
-Format: int = 0
-#------------------------------------------
-NLevel = 0
-#------------------------------------------
 
 #------------------------------------------
 # FuncDir ()
@@ -96,11 +77,7 @@ def FuncDir (ADir: os.DirEntry):
     # print('stat_name:',Lstat)
     # Lstat = os.stat(AFile.path)
     # print('stat_path:',Lstat)
-    print (GLevel, NLevel)
-    if GShablon == Shablon0:
-        message = GShablon.format (DirName = ADir.name)
-        print (message)
-    #endif
+    ...
 #endfunction
 
 #------------------------------------------
@@ -127,35 +104,9 @@ def TEST_01 ():
     print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
-
-    global GDir
-    global GLog
-    global GShablon
-
-    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
-    # GDir = os.getcwd()
-    match Format:
-        case 1:
-            GLog = 'sfile.ini'
-            GShablon = Shablon1
-        case 2:
-            GLog = 'sfile.ini'
-            GShablon = Shablon2
-        case _:
-            GLog = 'sdir.bat'
-            GShablon = Shablon0
-    #endmatch
-    print ('GDir     = '+GDir)
-    print ('GMask    = '+GMask)
-    print ('GLog     = '+GLog)
-    print ('GShablon = '+GShablon)
-
-    print ('Format  = ',Format)
-    print ('NLevel  = ',NLevel)
-
-    # ListDir (GDir, GMask)
-    LUFileUtils.ListDir(GDir, GMask, '', 0, FuncDir, FuncFile, NLevel)
-
+    _OutFile = 'ListDir.txt'
+    LUFile.FileDelete (_OutFile)
+    LUFileUtils.ListDir(GDir, GMask, _OutFile, 11, FuncDir, FuncFile)
 #endfunction
 
 #------------------------------------------
@@ -163,31 +114,39 @@ def TEST_01 ():
 #------------------------------------------
 def main ():
 #beginfunction
+    global GDir
+    global GMask
+
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
-    # LULog.LoggerTOOLS_AddLevel (LULog.TEXT, "Тест")
-    # LULog.LoggerTOOLS_AddDebug ("debug")
-    # LULog.LoggerTOOLS_AddLevel (logging.DEBUG, "debug")
 
     s = f'sys.argv = {sys.argv}'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
-    Format = LUParserARG.GetParam ('Format', "")
-    s = f'Format = {Format}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, Format)
-    NLevel = LUParserARG.GetParam ('NLevel', "")
-    s = f'NLevel = {NLevel}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, NLevel)
 
-    # Lparser = argparse.ArgumentParser (description = 'Параметры', prefix_chars = '-/')
-    # Lparser.add_argument ('-Format', type = int, nargs = '?', default = -1, dest = 'Format', help = 'Format')
-    # Lparser.add_argument ('-NLevel', type = int, nargs = '?', default = -1, dest = 'NLevel', help = 'NLevel')
-    # Largs = Lparser.parse_args ()
-    # LFormat = Largs.Format
-    # s = f'Format = {LFormat}'
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
-    # LNLevel = Largs.NLevel
-    # s = f'NLevel = {LNLevel}'
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    #----------------------------------------------------------------
+    # LPDir = LUParserARG.GetParam ('PDir', "")
+    # s = f'Format = {LPDir}'
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, LPDir)
+    # LPMask = LUParserARG.GetParam ('PMask', "")
+    # s = f'PMask = {LPMask}'
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, LPMask)
+    #----------------------------------------------------------------
+
+    Lparser = argparse.ArgumentParser (description = 'Параметры', prefix_chars = '-/')
+    Lparser.add_argument ('PDir', type = str, default='', help = 'PDir')
+    Lparser.add_argument ('PMask', type = str, default='', help = 'PMask')
+    # Lparser.add_argument ('-PDir', type = str, nargs = '?', default = '', dest = 'PDir', help = 'PDir')
+    # Lparser.add_argument ('-PMask', type = str, nargs = '?', default = '', dest = 'PMask', help = 'PMask')
+    Largs = Lparser.parse_args ()
+    
+    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    GDir = 'D:\\GAMES\\WORK\\AV'
+    GDir = Largs.PDir
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
+
+    GMask = '*.*'
+    GMask = Largs.PMask
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
     TEST_01 ()
 
