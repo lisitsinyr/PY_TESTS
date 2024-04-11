@@ -4,10 +4,10 @@
  Author:
      Lisitsin Y.R.
  Project:
-     PATTERNS_PY
+     TESTS_PY
      Python (PROJECTS_PY)
  Module:
-     ListDir3.py
+     DelFiles.py
 
  =======================================================
 """
@@ -96,19 +96,21 @@ def FuncFile (AFile: os.DirEntry):
     ...
 #endfunction
 
-
 #------------------------------------------
 # TEST_01 ()
 #------------------------------------------
 def TEST_01 ():
     """TEST_01"""
 #beginfunction
-    print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
-    _OutFile = 'ListDir.txt'
+
+    _OutFile = 'DirFiles.txt'
+    _OutFile = 'CONSOLE'
     LUFile.FileDelete (_OutFile)
-    LUFileUtils.ListDir(GDir, GMask, _OutFile, 11, FuncDir, FuncFile, sys.maxsize)
+
+    LUFileUtils.DelFiles(GDir, GMask, _OutFile, 100)
 #endfunction
 
 #------------------------------------------
@@ -135,16 +137,23 @@ def main ():
     Lparser = argparse.ArgumentParser (description = 'Параметры', prefix_chars = '-/')
     Lparser.add_argument ('PDir', type = str, default='', help = 'PDir')
     Lparser.add_argument ('PMask', type = str, default='', help = 'PMask')
+    Lparser.add_argument ('PDays', type = int, default=100, help = 'PDays')
     # Lparser.add_argument ('-PDir', type = str, nargs = '?', default = '', dest = 'PDir', help = 'PDir')
     # Lparser.add_argument ('-PMask', type = str, nargs = '?', default = '', dest = 'PMask', help = 'PMask')
-    Largs = Lparser.parse_args ()
-    
+    # Lparser.add_argument ('-PDays', type = int, nargs = '?', default = 100, dest = 'PDays', help = 'PDays')
+    # Largs = Lparser.parse_args ()
+    # GDir = Largs.PDir
+    # GMask = Largs.PMask
+    # GDays = Largs.PDays
+
     GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
-    GDir = 'D:\\GAMES\\WORK\\AV'
-    GDir = Largs.PDir
+    GMask = '.*'
+    GDays = 100
+
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
-    GMask = Largs.PMask
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'Pdays = {GDays}')
+    print('!!!!')
 
     TEST_01 ()
 

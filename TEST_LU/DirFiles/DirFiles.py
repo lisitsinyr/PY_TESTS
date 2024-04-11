@@ -4,10 +4,10 @@
  Author:
      Lisitsin Y.R.
  Project:
-     PATTERNS_PY
+     TESTS_PY
      Python (PROJECTS_PY)
  Module:
-     ListDir3.py
+     DirFiles.py
 
  =======================================================
 """
@@ -96,19 +96,21 @@ def FuncFile (AFile: os.DirEntry):
     ...
 #endfunction
 
-
 #------------------------------------------
 # TEST_01 ()
 #------------------------------------------
 def TEST_01 ():
     """TEST_01"""
 #beginfunction
-    print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
-    _OutFile = 'ListDir.txt'
+
+    _OutFile = 'DirFiles.txt'
+    _OutFile = 'CONSOLE'
     LUFile.FileDelete (_OutFile)
-    LUFileUtils.ListDir(GDir, GMask, _OutFile, 11, FuncDir, FuncFile, sys.maxsize)
+
+    LUFileUtils.DirFiles(GDir, GMask, _OutFile)
 #endfunction
 
 #------------------------------------------
@@ -137,14 +139,16 @@ def main ():
     Lparser.add_argument ('PMask', type = str, default='', help = 'PMask')
     # Lparser.add_argument ('-PDir', type = str, nargs = '?', default = '', dest = 'PDir', help = 'PDir')
     # Lparser.add_argument ('-PMask', type = str, nargs = '?', default = '', dest = 'PMask', help = 'PMask')
-    Largs = Lparser.parse_args ()
-    
+    # Largs = Lparser.parse_args ()
+    # GDir = Largs.PDir
+    # GMask = Largs.PMask
+
     GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
-    GDir = 'D:\\GAMES\\WORK\\AV'
-    GDir = Largs.PDir
+    GMask = '.*'
+
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
-    GMask = Largs.PMask
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
+    print('!!!!')
 
     TEST_01 ()
 
