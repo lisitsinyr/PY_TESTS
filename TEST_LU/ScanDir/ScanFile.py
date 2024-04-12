@@ -4,7 +4,7 @@
  Author:
      Lisitsin Y.R.
  Project:
-     PATTERNS_PY
+     TESTS_PY
      Python (PROJECTS_PY)
  Module:
      ScanFile.py
@@ -64,6 +64,9 @@ import LUYouTube
 #------------------------------------------
 #CONST
 #------------------------------------------
+GDirSource =''
+GDirDest = ''
+GMask = ''
 
 #------------------------------------------
 # FuncDir ()
@@ -104,9 +107,12 @@ def TEST_01 ():
     print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
+
     _OutFile = 'ListDir.txt'
     LUFile.FileDelete (_OutFile)
-    LUFileUtils.ListDir(GDir, GMask, _OutFile, 11, FuncDir, FuncFile)
+
+    LUFileUtils.ScanFile(GDirSource, GDirDest, GMask,
+                         True, '',False, None, False, None)
 #endfunction
 
 #------------------------------------------
@@ -114,7 +120,8 @@ def TEST_01 ():
 #------------------------------------------
 def main ():
 #beginfunction
-    global GDir
+    global GDirSource
+    global GDirDest
     global GMask
 
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
@@ -133,19 +140,23 @@ def main ():
     #----------------------------------------------------------------
 
     Lparser = argparse.ArgumentParser (description = 'Параметры', prefix_chars = '-/')
-    Lparser.add_argument ('PDir', type = str, default='', help = 'PDir')
+    Lparser.add_argument ('PDirSource', type = str, default='', help = 'PDirSource')
+    Lparser.add_argument ('PDirDest', type = str, default='', help = 'PDirDest')
     Lparser.add_argument ('PMask', type = str, default='', help = 'PMask')
-    # Lparser.add_argument ('-PDir', type = str, nargs = '?', default = '', dest = 'PDir', help = 'PDir')
+    # Lparser.add_argument ('-PDirSource', type = str, nargs = '?', default = '', dest = 'PDirSource', help = 'PDirSource')
+    # Lparser.add_argument ('-PDirDest', type = str, nargs = '?', default = '', dest = 'PDirDest', help = 'PDirDest')
     # Lparser.add_argument ('-PMask', type = str, nargs = '?', default = '', dest = 'PMask', help = 'PMask')
-    Largs = Lparser.parse_args ()
-    
-    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
-    GDir = 'D:\\GAMES\\WORK\\AV'
-    GDir = Largs.PDir
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
+    # Largs = Lparser.parse_args ()
+    # GDirSource = Largs.PDirSource
+    # GDirDest = Largs.PDirDest
+    # GMask = Largs.PMask
 
-    GMask = '*.*'
-    GMask = Largs.PMask
+    GDirSource = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    GDirDest = 'D:\\WORK\\TESTS_PY'
+    GMask = '.*'
+
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDirSource = {GDirSource}')
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDirDest = {GDirDest}')
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
     TEST_01 ()

@@ -1,151 +1,171 @@
-#=======================================================================================
-# TEST_ScanDir.py
-#=======================================================================================
+"""
+ =======================================================
+ Copyright (c) 2024
+ Author:
+     Lisitsin Y.R.
+ Project:
+     TESTS_PY
+     Python (PROJECTS_PY)
+ Module:
+     ScanDir.py
 
+ =======================================================
+"""
 #------------------------------------------
-#  БИБЛИОТЕКИ python
+# БИБЛИОТЕКИ python
 #------------------------------------------
 import os
 import sys
-
-from os.path import join, getsize
+import time
+import datetime
+import logging
+import argparse
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
 #------------------------------------------
-import argparse
-import datetime
-from colorama import Fore, Back, Style
+import pandas
 
 #------------------------------------------
-# БИБЛИОТЕКА LU
+# БИБЛИОТЕКИ LU
 #------------------------------------------
+import LUConsole
 import LUConst
-#import LUStrings
+import LUDateTime
+import LUDecotators
+import LUDict
+from LUDoc import *
+#import LUDoc
+import LUErrors
+import LUFile
+import LUFileUtils
+import LULog
+import LUNetwork
+import LUNumUtils
+import LUObjects
+import LUObjectsYT
+import LUos
+import LUParserARG
+import LUParserINI
+#import LUParserREG
+import LUProc
+import LUQThread
+import LUQTimer
+import LUSheduler
+import LUStrDecode
 import LUStrUtils
 import LUSupport
-#------------------------------------------
+import LUsys
+import LUThread
+#import LUTimer
+import LUVersion
+import LUYouTube
 
-print ('os.name->', os.name)  # ответ: nt
-print ("os.environ['PYTHONPATH']->", os.environ ['PYTHONPATH'])
-print ("sys.path->", sys.path)
+#------------------------------------------
+#CONST
+#------------------------------------------
+GDirSource =''
+GDirDest = ''
+GMask = ''
 
 #------------------------------------------
-# 
+# FuncDir ()
 #------------------------------------------
-parser = argparse.ArgumentParser(description='Параметры')
-parser.add_argument('-P1', type=str, nargs='?', default='', dest='P1', help='P1')
-args = parser.parse_args()
-print('-P1 = ',args.P1)
-#------------------------------------------
-P1 = ''
-if args.P1 != '':
-    P1 = args.P1
-#endif
-#------------------------------------------
-
-#-------------------------------------------------------------------------------
-# TEST_02_01 (APath: str):
-#-------------------------------------------------------------------------------
-def TEST_02_01 (APath: str):
+def FuncDir (ADir: os.DirEntry):
+    """FuncDir"""
 #beginfunction
-    print ("Begin TEST_02_01")
-    with os.scandir(APath) as it:
-        for Lentry in it:
-            if not Lentry.name.startswith('.') and Lentry.is_file():
-                print('File=',Lentry.name)
-            #endif
-        #endfor
-    #endwith
-    print ("End TEST_02_01")
-#endfunction
-
-#-------------------------------------------------------------------------------
-# TEST_02_02 (APath: str):
-# Delete everything reachable from the directory named in "top",
-# assuming there are no symbolic links.
-# CAUTION:  This is dangerous!  For example, if top == '/', it
-# could delete all your disk files.
-#-------------------------------------------------------------------------------
-def TEST_02_02 (APath: str):
-#beginfunction
-    print ("="*40)
-    print ("Begin TEST_02_02")
-    print (APath)
-    os.system('color')
-    for DirPath, DirNames, FileNames in os.walk(APath, topdown=False):
-        print (DirPath)
-        if len (FileNames) == 0:
-            print ('    РљР°С‚Р°Р»РѕРіРѕРІ РЅРµС‚.')
-        else:
-            for name in DirNames:
-                s = os.path.join(DirPath, name)
-                #os.rmdir(s)
-                print (Style.BRIGHT,
-                    Fore.LIGHTWHITE_EX
-                       ,Back.LIGHTBLACK_EX
-                       ,
-                       s,Style.RESET_ALL)
-            #endfor
-        #endif
-        if len (FileNames) == 0:
-            print ('    Р¤Р°Р№Р»РѕРІ РЅРµС‚.')
-        else:
-            for name in FileNames:
-                s = os.path.join(DirPath, name)
-                #os.remove(s)
-                print ('    ',s)
-            #endfor
-        #endif
-    #endfor
-    print ("End TEST_02_02")
-#endfunction
-
-#-------------------------------------------------------------------------------
-# TEST_02_03 (APath: str):
-#-------------------------------------------------------------------------------
-def TEST_02_03 (APath: str):
-#beginfunction
-    print ("="*40)
-    print ("Begin TEST_02_03")
-    for DirPath, DirNames, FileNames in os.walk(APath):
-        print(DirPath, "consumes", end=" ")
-        print(sum(getsize(join(DirPath, name)) for name in FileNames), end=" ")
-        print("bytes in", len(FileNames), "non-directory files")
-        if 'CVS' in DirNames:
-            #DirNames.remove('CVS')  # don't visit CVS directories
-            print ('CVS')
-        #endif
-    #endfor
-    print ("End TEST_02_03")
-#endfunction
-
-#-------------------------------------------------------------------------------
-# TEST_02_04 (AFileName: str):
-#-------------------------------------------------------------------------------
-def TEST_02_04 (AFileName: str):
-#beginfunction
-    print ("Begin TEST_02_04")
-    #statinfo = os.stat(AFileName)
-    #os.stat_result(st_mode=33188, st_ino=7876932, st_dev=234881026,
-    #   st_nlink=1, st_uid=501, st_gid=501, st_size=264, st_atime=1297230295,
-    #    st_mtime=1297230027, st_ctime=1297230027)
-    #statinfo.st_size
-    print ("End TEST_02_04")
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, ADir.path)
+    # Lstat = os.stat(AFile.name)
+    # print('stat_name:',Lstat)
+    # Lstat = os.stat(AFile.path)
+    # print('stat_path:',Lstat)
+    ...
 #endfunction
 
 #------------------------------------------
-# main():
+# FuncFile ()
 #------------------------------------------
-def main():
+def FuncFile (AFile: os.DirEntry):
+    """FuncFile"""
 #beginfunction
-    #TEST_02_01 ('D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY')
-    TEST_02_02 ("D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY")
-    #TEST_02_03 ("D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY")
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile.path)
+    # Lstat = os.stat(AFile.name)
+    # print('stat_name:',Lstat)
+    # Lstat = os.stat(AFile.path)
+    # print('stat_path:',Lstat)
+    ...
 #endfunction
 
 #------------------------------------------
-#
+# TEST_01 ()
+#------------------------------------------
+def TEST_01 ():
+    """TEST_"""
+#beginfunction
+    print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    PrintInfoObject('-----TEST_01----')
+    PrintInfoObject(TEST_01)
+
+    _OutFile = 'ListDir.txt'
+    LUFile.FileDelete (_OutFile)
+
+    LUFileUtils.ScanDir(GDirSource, GDirDest, GMask,
+                         True, '',False, None, False, None)
+#endfunction
+
+#------------------------------------------
+# main ()
+#------------------------------------------
+def main ():
+#beginfunction
+    global GDirSource
+    global GDirDest
+    global GMask
+
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
+                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
+
+    s = f'sys.argv = {sys.argv}'
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+
+    #----------------------------------------------------------------
+    # LPDir = LUParserARG.GetParam ('PDir', "")
+    # s = f'Format = {LPDir}'
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, LPDir)
+    # LPMask = LUParserARG.GetParam ('PMask', "")
+    # s = f'PMask = {LPMask}'
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, LPMask)
+    #----------------------------------------------------------------
+
+    Lparser = argparse.ArgumentParser (description = 'Параметры', prefix_chars = '-/')
+    Lparser.add_argument ('PDirSource', type = str, default='', help = 'PDirSource')
+    Lparser.add_argument ('PDirDest', type = str, default='', help = 'PDirDest')
+    Lparser.add_argument ('PMask', type = str, default='', help = 'PMask')
+    # Lparser.add_argument ('-PDirSource', type = str, nargs = '?', default = '', dest = 'PDirSource', help = 'PDirSource')
+    # Lparser.add_argument ('-PDirDest', type = str, nargs = '?', default = '', dest = 'PDirDest', help = 'PDirDest')
+    # Lparser.add_argument ('-PMask', type = str, nargs = '?', default = '', dest = 'PMask', help = 'PMask')
+    # Largs = Lparser.parse_args ()
+    # GDirSource = Largs.PDirSource
+    # GDirDest = Largs.PDirDest
+    # GMask = Largs.PMask
+
+    GDirSource = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    GDirDest = 'D:\\WORK\\TESTS_PY'
+    GMask = '.*'
+
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDirSource = {GDirSource}')
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDirDest = {GDirDest}')
+    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
+
+    TEST_01 ()
+
+    LULog.STOPLogging ()
+#endfunction
+
+#------------------------------------------
+# ListDir2
 #------------------------------------------
 #beginmodule
 if __name__ == "__main__":
@@ -153,4 +173,3 @@ if __name__ == "__main__":
 #endif
 
 #endmodule
-#----------------------------------------------------------------------------
