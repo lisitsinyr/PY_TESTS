@@ -106,8 +106,8 @@ def TEST_01 ():
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
 
-    _OutFile = 'DirFiles.txt'
     _OutFile = 'CONSOLE'
+    _OutFile = 'DirFiles.txt'
     LUFile.FileDelete (_OutFile)
 
     LUFileUtils.DirFiles(GDir, GMask, _OutFile)
