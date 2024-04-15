@@ -69,7 +69,7 @@ import LUYouTube
 #------------------------------------------
 # FuncDir ()
 #------------------------------------------
-def FuncDir (ADir: os.DirEntry):
+def FuncDir (ADir: str):
     """FuncDir"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
@@ -84,7 +84,7 @@ def FuncDir (ADir: os.DirEntry):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: os.DirEntry):
+def FuncFile (AFile: str, _Older: int):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
@@ -105,9 +105,11 @@ def TEST_01 ():
     print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
-    _OutFile = 'ListDir.txt'
-    LUFile.FileDelete (_OutFile)
-    LUFileUtils.ListDir(GDir, GMask, _OutFile, 11, FuncDir, FuncFile, sys.maxsize)
+    _OutFile = 'ListDir3.txt'
+    LUFile.FileDelete (_OutFile, 100)
+    # LUFileUtils.__ListDir (GDir, GMask, '', True, _OutFile, 1, FuncDir, FuncFile)
+    LUFileUtils.DirFiles (GDir, GMask, True, _OutFile, 1)
+
 #endfunction
 
 #------------------------------------------

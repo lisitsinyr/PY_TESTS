@@ -75,18 +75,20 @@ if NLevel is None:
 #------------------------------------------
 # FuncDir ()
 #------------------------------------------
-def FuncDir (ADir: os.DirEntry):
+# def FuncDir (ADir: os.DirEntry):
+def FuncDir (ADir: str):
     """FuncDir"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, ADir.path)
-    # Lstat = os.stat(AFile.name)
+    Lstat = os.stat(ADir)
     # print('stat_name:',Lstat)
     # Lstat = os.stat(AFile.path)
     # print('stat_path:',Lstat)
-    print (GLevel, NLevel)
+    # print (GLevel, NLevel)
+    LBaseName = os.path.basename (ADir)
     if GShablon == Shablon0:
-        message = GShablon.format (DirName = ADir.name)
+        message = GShablon.format (DirName = LBaseName)
         print (message)
     #endif
 #endfunction
@@ -94,12 +96,13 @@ def FuncDir (ADir: os.DirEntry):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: os.DirEntry):
+# def FuncFile (AFile: os.DirEntry):
+def FuncFile (AFile: str, _Older: int):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile.path)
-    # Lstat = os.stat(AFile.name)
+    Lstat = os.stat(AFile)
     # print('stat_name:',Lstat)
     # Lstat = os.stat(AFile.path)
     # print('stat_path:',Lstat)
@@ -136,8 +139,9 @@ def main():
     print ('Format  = ',Format)
     print ('NLevel  = ',NLevel)
 
-    # ListDir (GDir, GMask)
-    LUFileUtils.ListDir(GDir, GMask, '', 0, FuncDir, FuncFile, NLevel)
+    _OutFile = 'ListDir.txt'
+    LMask = '.*'
+    LUFileUtils.__ListDir (GDir, LMask, False, '', _OutFile, 0, FuncDir, FuncFile)
 #endfunction
 
 #------------------------------------------

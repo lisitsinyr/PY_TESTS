@@ -1,0 +1,30 @@
+ListDir [DIR]
+    ListDir.bat
+    ListDir.py
+    ListDir.txt
+    ListDir2.bat
+    ListDir2.py
+    ListDir3.bat
+    ListDir3.py
+    ListDir3.txt
+    LOGGING_FILEINI.log
+    LOGGING_FILEINI_json.log
+    OLD [DIR]
+        listdir
+        ListDir.bat.save
+        listdir2
+15.04.2024  18:50    <DIR> .
+09.04.2024  18:17          2070 ListDir.bat
+15.04.2024  18:48          4361 ListDir.py
+15.04.2024  14:05          266 ListDir.txt
+09.04.2024  18:17          2073 ListDir2.bat
+10.04.2024  15:05          5714 ListDir2.py
+09.04.2024  18:18          2035 ListDir3.bat
+15.04.2024  18:50          4715 ListDir3.py
+15.04.2024  18:50          629 ListDir3.txt
+15.04.2024  18:50          190554 LOGGING_FILEINI.log
+10.04.2024  15:25          0 LOGGING_FILEINI_json.log
+10.04.2024  15:06    <DIR> .
+10.04.2024  15:05          3790 listdir
+09.02.2024  12:34          1470 ListDir.bat.save
+10.04.2024  15:06          3937 listdir2

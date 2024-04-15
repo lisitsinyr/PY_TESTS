@@ -84,7 +84,7 @@ def FuncDir (ADir: os.DirEntry):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: os.DirEntry):
+def FuncFile (AFile: str, _Older: int):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
@@ -108,9 +108,10 @@ def TEST_01 ():
 
     _OutFile = 'CONSOLE'
     _OutFile = 'DirFiles.txt'
-    LUFile.FileDelete (_OutFile)
+    LUFile.FileDelete (_OutFile, 100)
 
-    LUFileUtils.DirFiles(GDir, GMask, _OutFile)
+    LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, 1)
+
 #endfunction
 
 #------------------------------------------
@@ -143,7 +144,7 @@ def main ():
     # GDir = Largs.PDir
     # GMask = Largs.PMask
 
-    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\ListDir'
     GMask = '.*'
 
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')

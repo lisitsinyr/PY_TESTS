@@ -106,11 +106,11 @@ def TEST_01 ():
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
 
-    _OutFile = 'DirFiles.txt'
     _OutFile = 'CONSOLE'
-    LUFile.FileDelete (_OutFile)
+    _OutFile = 'DirFiles.txt'
+    # LUFile.FileDelete (_OutFile, 100)
 
-    LUFileUtils.DelFiles(GDir, GMask, _OutFile, 100)
+    LUFileUtils.DelFiles(GDir, GMask, True, _OutFile, 1, 100)
 #endfunction
 
 #------------------------------------------
@@ -146,7 +146,7 @@ def main ():
     # GMask = Largs.PMask
     # GDays = Largs.PDays
 
-    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    GDir = 'D:\\WORK\\TESTS_PY'
     GMask = '.*'
     GDays = 100
 

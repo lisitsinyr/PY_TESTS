@@ -71,7 +71,7 @@ GMask = ''
 #------------------------------------------
 # FuncDir ()
 #------------------------------------------
-def FuncDir (ADir: os.DirEntry):
+def FuncDir (ADir: str):
     """FuncDir"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
@@ -86,12 +86,12 @@ def FuncDir (ADir: os.DirEntry):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: os.DirEntry):
+def FuncFile (AFile: str, _Older: int):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile.path)
-    # Lstat = os.stat(AFile.name)
+    Lstat = os.stat(AFile)
     # print('stat_name:',Lstat)
     # Lstat = os.stat(AFile.path)
     # print('stat_path:',Lstat)

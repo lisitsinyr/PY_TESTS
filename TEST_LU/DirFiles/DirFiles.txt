@@ -1,218 +1,64 @@
-TESTS_PY [DIR]
-    .gitignore
-    .gitmodules
-    lyrgit_push_main.bat
-    README.md
-    REPO.ini
-    TESTS_PY.code-workspace
-    UPDATE_TESTS_PY.bat
-    TEST_Builder
-    TEST_Builder [DIR]
-        TEST_Builder.py
-    TEST_Celery
-    TEST_Celery [DIR]
-        TEST_Celery.py
-    TEST_LU
-    TEST_LU [DIR]
-        BacDirs
-        BacDirs [DIR]
-        BacFile
-        BacFile [DIR]
-        BacFiles
-        BacFiles [DIR]
-        DelFiles
-        DelFiles [DIR]
-            DelFiles.py
-            LOGGING_FILEINI.log
-            LOGGING_FILEINI_json.log
-        DirFiles
-        DirFiles [DIR]
-            DirFiles.py
-            DirFiles.txt
-            LOGGING_FILEINI.log
-            LOGGING_FILEINI_json.log
-        ListDir
-        ListDir [DIR]
-            ListDir.bat
-            ListDir.py
-            ListDir.txt
-            ListDir2.bat
-            ListDir2.py
-            ListDir3.bat
-            ListDir3.py
-            LOGGING_FILEINI.log
-            LOGGING_FILEINI_json.log
-            OLD
-            OLD [DIR]
-                listdir
-                ListDir.bat.save
-                listdir2
-        LU
-        LU [DIR]
-            clipTubeConfig.ini
-            if not isinstance(level, int).py
-            logging.CONFIG
-            logging.ini
-            logging.YAML
-            TEST_FormaTXT.py
-            TEST_FormaTXT.py.save
-            TEST_FormaTXT.txt
-            TEST_FormaTXT.txt.save
-            TEST_LU.ini
-            TEST_LU.py
-            TEST_LUConsole.py
-            TEST_LUDateTime.py
-            TEST_LUFile.py
-            TEST_LUFileUtils.py
-            TEST_LULog.py
-            TEST_LULog_START.py
-            TEST_LUos.py
-            TEST_LUParserARG.py
-            TEST_LUParserINI.py
-            TEST_LUParserREG.py
-            TEST_LUSheduler.py
-            TEST_LUStrUtils.py
-            TEST_LUSupport.py
-            TEST_LUsys.py
-            TEST_rich_00.py
-            TEST_rich_01.py
-            TEST_schedule.py
-            TEST_YOUTUBE.py
-            TEST_YOUTUBE_tk.py
-            1
-            1 [DIR]
-                1
-                1 [DIR]
-            LOG
-            LOG [DIR]
-                20240405.log
-                LOGGING_FILEINI.log
-                LOGGING_FILEINI_json.log
-                LOGGING_FILEINI_new.log
-                2024
-                2024 [DIR]
-                    04
-                    04 [DIR]
-                        TEST_Log_logging_20240405.log
-                        TEST_Log_LU_20240405.log
-            LOG_CONFIG
-            LOG_CONFIG [DIR]
-                LOGGING_FILECONFIG.log
-                LOGGING_FILECONFIG_json.log
-            LOG_INIT
-            LOG_INIT [DIR]
-                LOGGING_FILEINI.log
-                LOGGING_FILEINI_json.log
-            LOG_YAML
-            LOG_YAML [DIR]
-                LOGGING_FILEYAML.log
-                LOGGING_FILEYAML_json.log
-            qichenliu.formatxt-1.2.1
-            qichenliu.formatxt-1.2.1 [DIR]
-                script
-                script [DIR]
-                    formatxt.py
-        ScanDir
-        ScanDir [DIR]
-            LOGGING_FILEINI.log
-            LOGGING_FILEINI_json.log
-            ScanDir.py
-            ScanFile.bat
-            ScanFile.py
-        Version
-        Version [DIR]
-            Version.bat
-            Version.bat.save
-            Version.py
-    TEST_QT5_PY
-    TEST_QT5_PY [DIR]
-        TEST_GeneratePassword
-        TEST_GeneratePassword [DIR]
-            form.ui
-            key.png
-        TEST_YouTube
-        TEST_YouTube [DIR]
-            Downloader.py
-            Downloader_save.py
-    TEST_QT6_PY
-    TEST_QT6_PY [DIR]
-        TEST_02
-        TEST_02 [DIR]
-            form.ui
-            TEST02.pyproject
-            TEST02.pyproject.user
-            ui_form.py
-            widget.py
-            __pycache__
-            __pycache__ [DIR]
-                ui_form.cpython-312.pyc
-        TEST_04
-        TEST_04 [DIR]
-            form.ui
-            mainwindow.py
-            TEST04.pyproject
-            TEST04.pyproject.user
-            ui_form.py
-            __pycache__
-            __pycache__ [DIR]
-                ui_form.cpython-312.pyc
-        TEST_QtCore
-        TEST_QtCore [DIR]
-            main.py
-        TEST_QTsignal_slot
-        TEST_QTsignal_slot [DIR]
-            QTsignal_slot.py
-        TEST_SimpleApplication
-        TEST_SimpleApplication [DIR]
-            main.py
-    TEST_SUBD
-    TEST_SUBD [DIR]
-        MSSQL
-        MSSQL [DIR]
-            LearningSQL
-            LearningSQL [DIR]
-                LearningSQL-SQLServer-Script.sql
-        MySQL
-        MySQL [DIR]
-            LearningSQL
-            LearningSQL [DIR]
-                LearningSQL-MySQL-Script.sql
-        ORACLE
-        ORACLE [DIR]
-            LearningSQL
-            LearningSQL [DIR]
-                LearningSQL-Oracle-Script.sql
-            Oracle Sample Database
-            Oracle Sample Database [DIR]
-                ot_create_user.sql
-                ot_data.sql
-                ot_drop.sql
-                ot_schema.sql
-        TEST_MSSQL_pymssql
-        TEST_MSSQL_pymssql [DIR]
-            TEST_MSSQL_pymssql.py
-        TEST_MSSQL_pyodbc
-        TEST_MSSQL_pyodbc [DIR]
-            TEST_MSSQL_pyodbc.py
-        TEST_MySQL_PyMySQL
-        TEST_MySQL_PyMySQL [DIR]
-            TEST_MySQL_PyMySQL.py
-        TEST_ORACLE_oracledb
-        TEST_ORACLE_oracledb [DIR]
-            TEST_ORACLE_oracledb.py
-            TEST_ORACLE_oracledb.py.save
-            SQL
-            SQL [DIR]
-                createuser1_lyr.sql
-                createuser2_lyr.sql
-        TEST_ORACLE_pyodbc
-        TEST_ORACLE_pyodbc [DIR]
-            TEST_ORACLE_pyodbc.py
-            TEST_ORACLE_pyodbc.py.save
-            SQL
-            SQL [DIR]
-                createuser1_lyr.sql
-                createuser2_lyr.sql
-        TEST_PostgreSQL_psycopg2
-        TEST_PostgreSQL_psycopg2 [DIR]
-            TEST_PostgreSQL_psycopg2.py
+15.04.2024  15:39    <DIR> .
+09.04.2024  18:17          2070 ListDir.bat
+15.04.2024  14:54          4349 ListDir.py
+15.04.2024  14:05          266 ListDir.txt
+09.04.2024  18:17          2073 ListDir2.bat
+10.04.2024  15:05          5714 ListDir2.py
+09.04.2024  18:18          2035 ListDir3.bat
+15.04.2024  14:07          4710 ListDir3.py
+15.04.2024  15:39          284 ListDir3.txt
+15.04.2024  15:39          188455 LOGGING_FILEINI.log
+10.04.2024  15:25          0 LOGGING_FILEINI_json.log
+10.04.2024  15:06    <DIR> .
+10.04.2024  15:05          3790 listdir
+09.02.2024  12:34          1470 ListDir.bat.save
+10.04.2024  15:06          3937 listdir2
+15.04.2024  18:59    <DIR> .
+09.04.2024  18:17          2070 ListDir.bat
+15.04.2024  18:48          4361 ListDir.py
+15.04.2024  14:05          266 ListDir.txt
+09.04.2024  18:17          2073 ListDir2.bat
+15.04.2024  18:59          5807 ListDir2.py
+15.04.2024  18:59          801 ListDir2.txt
+09.04.2024  18:18          2035 ListDir3.bat
+15.04.2024  18:54          4699 ListDir3.py
+15.04.2024  18:50          947 ListDir3.txt
+15.04.2024  18:59          196011 LOGGING_FILEINI.log
+10.04.2024  15:25          0 LOGGING_FILEINI_json.log
+10.04.2024  15:06    <DIR> .
+10.04.2024  15:05          3790 listdir
+09.02.2024  12:34          1470 ListDir.bat.save
+10.04.2024  15:06          3937 listdir2
+15.04.2024  18:59    <DIR> .
+09.04.2024  18:17          2070 ListDir.bat
+15.04.2024  18:48          4361 ListDir.py
+15.04.2024  14:05          266 ListDir.txt
+09.04.2024  18:17          2073 ListDir2.bat
+15.04.2024  18:59          5807 ListDir2.py
+15.04.2024  18:59          801 ListDir2.txt
+09.04.2024  18:18          2035 ListDir3.bat
+15.04.2024  18:54          4699 ListDir3.py
+15.04.2024  18:50          947 ListDir3.txt
+15.04.2024  18:59          196011 LOGGING_FILEINI.log
+10.04.2024  15:25          0 LOGGING_FILEINI_json.log
+10.04.2024  15:06    <DIR> .
+10.04.2024  15:05          3790 listdir
+09.02.2024  12:34          1470 ListDir.bat.save
+10.04.2024  15:06          3937 listdir2
+15.04.2024  19:04    <DIR> .
+12.04.2024  17:49          1069 .gitignore
+09.04.2024  18:17          2070 ListDir.bat
+15.04.2024  18:48          4361 ListDir.py
+15.04.2024  14:05          266 ListDir.txt
+09.04.2024  18:17          2073 ListDir2.bat
+15.04.2024  18:59          5807 ListDir2.py
+15.04.2024  18:59          801 ListDir2.txt
+09.04.2024  18:18          2035 ListDir3.bat
+15.04.2024  18:54          4699 ListDir3.py
+15.04.2024  18:50          947 ListDir3.txt
+15.04.2024  18:59          196011 LOGGING_FILEINI.log
+10.04.2024  15:25          0 LOGGING_FILEINI_json.log
+10.04.2024  15:06    <DIR> .
+10.04.2024  15:05          3790 listdir
+09.02.2024  12:34          1470 ListDir.bat.save
+10.04.2024  15:06          3937 listdir2
