@@ -1,6 +1,6 @@
 @echo off
 rem -------------------------------------------------------------------
-rem ListDir.bat
+rem DelFiles.bat
 rem -------------------------------------------------------------------
 chcp 1251>NUL
 
@@ -45,7 +45,7 @@ rem beginfunction
         echo DEBUG: procedure %FUNCNAME% ...
     )
 
-    python.exe ListDir.py -Format=%Format% -NLevel=%NLevel%
+    python.exe DelFiles.py .\ .*
 
     exit /b 0
 rem endfunction

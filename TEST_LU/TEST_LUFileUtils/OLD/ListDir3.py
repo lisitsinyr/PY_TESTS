@@ -4,10 +4,10 @@
  Author:
      Lisitsin Y.R.
  Project:
-     TESTS_PY
+     PATTERNS_PY
      Python (PROJECTS_PY)
  Module:
-     DelFiles.py
+     ListDir3.py
 
  =======================================================
 """
@@ -69,7 +69,7 @@ import LUYouTube
 #------------------------------------------
 # FuncDir ()
 #------------------------------------------
-def FuncDir (ADir: os.DirEntry):
+def FuncDir (ADir: str):
     """FuncDir"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
@@ -84,12 +84,12 @@ def FuncDir (ADir: os.DirEntry):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: os.DirEntry):
+def FuncFile (AFile: str):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile.path)
-    # Lstat = os.stat(AFile.name)
+    Lstat = os.stat(AFile)
     # print('stat_name:',Lstat)
     # Lstat = os.stat(AFile.path)
     # print('stat_path:',Lstat)
@@ -102,15 +102,16 @@ def FuncFile (AFile: os.DirEntry):
 def TEST_01 ():
     """TEST_01"""
 #beginfunction
-    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
+    print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     PrintInfoObject('-----TEST_01----')
     PrintInfoObject(TEST_01)
 
-    _OutFile = 'CONSOLE'
-    _OutFile = 'DirFiles.txt'
-    # LUFile.FileDelete (_OutFile, 100)
+    _OutFile = 'ListDir3.txt'
+    LUFile.FileDelete (_OutFile)
 
-    LUFileUtils.DelFiles(GDir, GMask, True, _OutFile, 1, 100)
+    # LUFileUtils.__ListDir (GDir, GMask, '', True, _OutFile, 1, FuncDir, FuncFile)
+    LUFileUtils.DirFiles (GDir, GMask, True, _OutFile, 1)
+
 #endfunction
 
 #------------------------------------------
@@ -137,23 +138,16 @@ def main ():
     Lparser = argparse.ArgumentParser (description = 'Параметры', prefix_chars = '-/')
     Lparser.add_argument ('PDir', type = str, default='', help = 'PDir')
     Lparser.add_argument ('PMask', type = str, default='', help = 'PMask')
-    Lparser.add_argument ('PDays', type = int, default=100, help = 'PDays')
     # Lparser.add_argument ('-PDir', type = str, nargs = '?', default = '', dest = 'PDir', help = 'PDir')
     # Lparser.add_argument ('-PMask', type = str, nargs = '?', default = '', dest = 'PMask', help = 'PMask')
-    # Lparser.add_argument ('-PDays', type = int, nargs = '?', default = 100, dest = 'PDays', help = 'PDays')
-    # Largs = Lparser.parse_args ()
-    # GDir = Largs.PDir
-    # GMask = Largs.PMask
-    # GDays = Largs.PDays
-
-    GDir = 'D:\\WORK\\TESTS_PY'
-    GMask = '.*'
-    GDays = 100
-
+    Largs = Lparser.parse_args ()
+    
+    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY'
+    GDir = 'D:\\GAMES\\WORK\\AV'
+    GDir = Largs.PDir
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
+    GMask = Largs.PMask
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'Pdays = {GDays}')
-    print('!!!!')
 
     TEST_01 ()
 
