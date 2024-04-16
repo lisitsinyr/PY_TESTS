@@ -118,12 +118,12 @@ def main ():
     GMask = '.*'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
-    _Option = 1
+    _Option = 0
     _OutFile = 'DirFiles.txt'
     _OutFile = 'CONSOLE'
     # LUFile.FileDelete (_OutFile)
 
-    LUFileUtils.BacFiles(GDir, GDirDest, GMask, True, _OutFile, _Option)
+    LUFileUtils.BacFiles(GDir, GMask, True, GDirDest, _OutFile, _Option)
 
     LULog.STOPLogging ()
 #endfunction
