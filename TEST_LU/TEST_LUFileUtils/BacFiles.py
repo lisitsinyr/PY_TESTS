@@ -112,6 +112,7 @@ def main ():
     #----------------------------------------------------------------
 
     GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\TEST_LUFileUtils'
+    GDir = 'G:\\WORK\\TEST_QT6_PY'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
     GDirDest = 'D:\\WORK'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDirDest = {GDirDest}')
