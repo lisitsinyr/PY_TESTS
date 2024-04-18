@@ -229,13 +229,10 @@ def main ():
 #------------------------------------------
 #beginmodule
 if __name__ == "__main__":
-    if sys.platform == "win32":
+    if platform.system() == 'Windows':
         print("win32")
         main ()
-    if sys.platform == "linux":
-        print ("linux")
-    if sys.platform == "linux2":
-        print ("linux")
+    #endif
 #endif
 
 #endmodule

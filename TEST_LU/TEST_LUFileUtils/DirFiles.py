@@ -134,18 +134,18 @@ def main ():
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
     #----------------------------------------------------------------
 
-    GDir = r'D:\WORK\!!HISTORY'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
-    GMask = '.*'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
+    # GDir = r'D:\WORK\!!HISTORY'
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
+    # GMask = '.*'
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
-    _Option = 0
+    _Option = 1
     _OutFile = 'DirFiles.txt'
     _OutFile = 'CONSOLE'
     # LUFile.FileDelete (_OutFile)
 
     LULog.LoggerTOOLS.setLevel(logging.INFO)
-    LULog.LoggerTOOLS.setLevel(logging.DEBUG)
+    # LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
 

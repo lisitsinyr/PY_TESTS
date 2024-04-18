@@ -193,9 +193,11 @@ def main ():
 #------------------------------------------
 #beginmodule
 if __name__ == "__main__":
-    if sys.platform == "win32":
+    if platform.system() == 'Windows':
         main ()
-        # from mounter.win import *
+    #endif
+
+    # from mounter.win import *
     # if sys.platform == "darwin":
     #     from mounter.osx import *
     # if sys.platform == "linux2":
