@@ -79,7 +79,6 @@ def FuncDir (ADir: str, APathDest: str):
     # print('Lstat:',Lstat)
     LAttr = LUFile.GetFileAttr (ADir)
     # print ('LAttr:', LAttr)
-    ...
 #endfunction
 
 #------------------------------------------
@@ -92,14 +91,9 @@ def FuncFile (AFile: str, APathDest: str):
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile)
     Lstat = os.stat(AFile)
     # print('Lstat:',Lstat)
-    LAttr = LUFile.GetFileAttr(AFile)
-
-    Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
-
-    LUFile.SetFileAttr (AFile, Lflags, True)
-
-    # print ('LAttr:', LAttr)
-    ...
+    # LAttr = LUFile.GetFileAttr(AFile)
+    # Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
+    # LUFile.SetFileAttr (AFile, Lflags, True)
 #endfunction
 
 #------------------------------------------
@@ -140,8 +134,6 @@ def main ():
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
     #----------------------------------------------------------------
 
-    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\TEST_LUFileUtils'
-    GDir = r'D:\PROJECTS_LYR\CHECK_LIST\03_SCRIPT\01_KIX\TOOLS_KIX'
     GDir = r'D:\WORK\!!HISTORY'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
     GMask = '.*'

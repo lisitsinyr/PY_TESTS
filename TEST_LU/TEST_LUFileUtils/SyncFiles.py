@@ -111,10 +111,11 @@ def main ():
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
     #----------------------------------------------------------------
 
-    GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\TEST_LUFileUtils'
-    GDir = 'G:\\WORK\\TEST_QT6_PY'
+    GDir = r'D:\WORK\08_SUBD\01_ORACLE\БИБЛИОТЕКИ'
+    GDir = r'D:\WORK\08_SUBD\01_ORACLE\PROJECTS\oracle-db-examples'
+    GDir = r'D:\WORK\08_SUBD'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
-    GDirDest = 'D:\\WORK'
+    GDirDest = r'D:\WORK\SYNC\08_SUBD'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDirDest = {GDirDest}')
     GMask = '.*'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
@@ -123,6 +124,9 @@ def main ():
     _OutFile = 'SyncFiles.txt'
     _OutFile = 'CONSOLE'
     # LUFile.FileDelete (_OutFile)
+
+    LULog.LoggerTOOLS.setLevel(logging.INFO)
+    # LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.SyncFiles(GDir, GMask, GDirDest, _OutFile, _Option)
 
