@@ -22,6 +22,7 @@ import datetime
 import logging
 import argparse
 import stat
+import platform
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -37,7 +38,6 @@ import LUDateTime
 import LUDecotators
 import LUDict
 from LUDoc import *
-#import LUDoc
 import LUErrors
 import LUFile
 import LUFileUtils
@@ -91,7 +91,7 @@ def FuncFile (AFile: str, APathDest: str):
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile)
     Lstat = os.stat(AFile)
     # print('Lstat:',Lstat)
-    # LAttr = LUFile.GetFileAttr(AFile)
+    LAttr = LUFile.GetFileAttr(AFile)
     # Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
     # LUFile.SetFileAttr (AFile, Lflags, True)
 #endfunction
@@ -145,7 +145,7 @@ def main ():
     # LUFile.FileDelete (_OutFile)
 
     LULog.LoggerTOOLS.setLevel(logging.INFO)
-    # LULog.LoggerTOOLS.setLevel(logging.DEBUG)
+    LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
 
