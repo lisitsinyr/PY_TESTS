@@ -21,6 +21,7 @@ import time
 import datetime
 import logging
 import argparse
+import stat
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -69,30 +70,35 @@ import LUYouTube
 #------------------------------------------
 # FuncDir ()
 #------------------------------------------
-def FuncDir (ADir: str):
+def FuncDir (ADir: str, APathDest: str):
     """FuncDir"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, ADir.path)
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, ADir)
     Lstat = os.stat(ADir)
-    # print('stat_name:',Lstat)
-    # Lstat = os.stat(AFile.path)
-    # print('stat_path:',Lstat)
+    # print('Lstat:',Lstat)
+    LAttr = LUFile.GetFileAttr (ADir)
+    # print ('LAttr:', LAttr)
     ...
 #endfunction
 
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: str):
+def FuncFile (AFile: str, APathDest: str):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile.path)
+    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile)
     Lstat = os.stat(AFile)
-    # print('stat_name:',Lstat)
-    # Lstat = os.stat(AFile.path)
-    # print('stat_path:',Lstat)
+    # print('Lstat:',Lstat)
+    LAttr = LUFile.GetFileAttr(AFile)
+
+    Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
+
+    LUFile.SetFileAttr (AFile, Lflags, True)
+
+    # print ('LAttr:', LAttr)
     ...
 #endfunction
 
@@ -135,14 +141,19 @@ def main ():
     #----------------------------------------------------------------
 
     GDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\TEST_LUFileUtils'
+    GDir = r'D:\PROJECTS_LYR\CHECK_LIST\03_SCRIPT\01_KIX\TOOLS_KIX'
+    GDir = r'D:\WORK\!!HISTORY'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
     GMask = '.*'
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
-    _Option = 1
+    _Option = 0
     _OutFile = 'DirFiles.txt'
     _OutFile = 'CONSOLE'
     # LUFile.FileDelete (_OutFile)
+
+    LULog.LoggerTOOLS.setLevel(logging.INFO)
+    LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
 
