@@ -42,8 +42,8 @@ import LUErrors
 import LUFile
 import LUFileUtils
 import LULog
-import LUNetwork
-import LUNumUtils
+#import LUNetwork
+#import LUNumUtils
 import LUObjects
 import LUObjectsYT
 import LUos
@@ -60,7 +60,7 @@ import LUSupport
 import LUsys
 import LUThread
 #import LUTimer
-import LUVersion
+#import LUVersion
 import LUYouTube
 
 #------------------------------------------
