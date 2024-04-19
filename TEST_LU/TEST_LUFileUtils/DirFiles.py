@@ -74,11 +74,12 @@ def FuncDir (ADir: str, APathDest: str):
     """FuncDir"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, ADir)
     Lstat = os.stat(ADir)
-    # print('Lstat:',Lstat)
     LAttr = LUFile.GetFileAttr (ADir)
-    # print ('LAttr:', LAttr)
+    LDateTimem = LUFile.GetFileDateTime (ADir)[2]
+    LDateTimec = LUFile.GetFileDateTime (ADir)[3]
+    s = f'{LDateTimem:%d.%m.%Y  %H:%M} {LDateTimec:%d.%m.%Y  %H:%M}'
+    LULog.LoggerTOOLS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 #------------------------------------------
@@ -88,12 +89,14 @@ def FuncFile (AFile: str, APathDest: str):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile)
     Lstat = os.stat(AFile)
-    # print('Lstat:',Lstat)
     LAttr = LUFile.GetFileAttr(AFile)
     # Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
     # LUFile.SetFileAttr (AFile, Lflags, True)
+    LDateTimem = LUFile.GetFileDateTime (AFile)[2]
+    LDateTimec = LUFile.GetFileDateTime (AFile)[3]
+    s = f'{LDateTimem:%d.%m.%Y  %H:%M} {LDateTimec:%d.%m.%Y  %H:%M}'
+    LULog.LoggerTOOLS_AddLevel (LULog.TEXT, s)
 #endfunction
 
 #------------------------------------------
