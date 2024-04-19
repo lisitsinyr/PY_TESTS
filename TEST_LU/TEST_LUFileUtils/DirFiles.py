@@ -148,7 +148,7 @@ def main ():
     LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
-
+    LUFile.FileAttrStrUnix (0)
     LULog.STOPLogging ()
 #endfunction
 
