@@ -142,8 +142,6 @@ def main ():
     LULog.LoggerTOOLS.setLevel(logging.INFO)
     LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
-    # LUFile.FileAttrStrUnix (0)
-
     LDir = os.path.join (GDir, 'FAKE')
     LUFile.ForceDirectories (LDir)
 
