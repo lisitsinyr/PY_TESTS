@@ -7,7 +7,7 @@
      TESTS_PY
      Python (PROJECTS_PY)
  Module:
-     DirFiles.py
+     FakeFiles.py
 
  =======================================================
 """
@@ -120,37 +120,33 @@ def main ():
     #----------------------------------------------------------------
     GDir = LUParserARG.GetParam ('PDir', "")
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
-    GMask = LUParserARG.GetParam ('PMask', "")
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
     #----------------------------------------------------------------
 
     #----------------------------------------------------------------
     Lparser = argparse.ArgumentParser (description = 'Параметры', prefix_chars = '-/')
     Lparser.add_argument ('PDir', type = str, default='', help = 'PDir')
-    Lparser.add_argument ('PMask', type = str, default='', help = 'PMask')
     # Lparser.add_argument ('-PDir', type = str, nargs = '?', default = '', dest = 'PDir', help = 'PDir')
-    # Lparser.add_argument ('-PMask', type = str, nargs = '?', default = '', dest = 'PMask', help = 'PMask')
     Largs = Lparser.parse_args ()
     GDir = Largs.PDir
     LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
-    GMask = Largs.PMask
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
     #----------------------------------------------------------------
 
     # GDir = r'D:\WORK\!!HISTORY'
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
-    # GMask = '.*'
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
     _Option = 1
-    _OutFile = 'DirFiles.txt'
+    _OutFile = 'FakeFiles.txt'
     _OutFile = 'CONSOLE'
     # LUFile.FileDelete (_OutFile)
 
     LULog.LoggerTOOLS.setLevel(logging.INFO)
     LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
-    LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
+    # LUFile.FileAttrStrUnix (0)
+
+    LDir = os.path.join (GDir, 'FAKE')
+    LUFile.ForceDirectories (LDir)
+    LUFileUtils.FakeFiles(LDir, _OutFile, _Option, FuncDir, FuncFile)
 
     LULog.STOPLogging ()
 #endfunction
