@@ -70,7 +70,7 @@ import LUYouTube
 #------------------------------------------
 # FuncDir ()
 #------------------------------------------
-def FuncDir (ADir: str, APathDest: str):
+def FuncDir (ADir: str):
     """FuncDir"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
@@ -85,7 +85,7 @@ def FuncDir (ADir: str, APathDest: str):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: str, APathDest: str):
+def FuncFile (AFile: str):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
@@ -146,7 +146,13 @@ def main ():
 
     LDir = os.path.join (GDir, 'FAKE')
     LUFile.ForceDirectories (LDir)
+
     LUFileUtils.FakeFiles(LDir, _OutFile, _Option, FuncDir, FuncFile)
+
+    if LUFile.DirectoryExists(LDir):
+        # LUFile.DeleteDirectoryTree(LDir)
+        LUFile.ClearDirectory (LDir)
+    #endif
 
     LULog.STOPLogging ()
 #endfunction
