@@ -30,9 +30,11 @@ __pycache__/
 GIT_CONFIG*
 config*
 PROJECTS_LYR*
+TESTS_PY.code-workspace
 
 ### Исключить все файлы с расширение ###
 *.log
+*.code-workspace
 /*.bat
 
 ### Игнорировать все файлы в каталогах ###
@@ -40,3 +42,4 @@ LOGS/
 LOG/
 out/
 EXE/
+FAKE/

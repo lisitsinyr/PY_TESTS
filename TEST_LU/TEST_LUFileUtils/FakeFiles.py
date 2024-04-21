@@ -149,7 +149,8 @@ def main ():
 
     if LUFile.DirectoryExists(LDir):
         # LUFile.DeleteDirectoryTree(LDir)
-        LUFile.DirectoryClear (LDir)
+        # LUFile.DirectoryClear (LDir)
+        ...
     #endif
 
     LULog.STOPLogging ()
