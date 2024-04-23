@@ -22,6 +22,7 @@ __annotations__ = """
 # БИБЛИОТЕКИ сторонние
 #------------------------------------------
 import datetime
+import pathlib
 
 #------------------------------------------
 # БИБЛИОТЕКА LU 
@@ -34,8 +35,8 @@ from LUDoc import *
 def TEST_LUFile_pathlib ():
     """TEST_LUFile_pathlib"""
 #beginfunction
-    PrintInfoObject('---------TEST_LUFile----------')
-    PrintInfoObject(TEST_LUFile)
+    PrintInfoObject('---------TEST_LUFile_pathlib----------')
+    PrintInfoObject(TEST_LUFile_pathlib)
     PrintInfoObject(LUFile)
 #endfunction
 
