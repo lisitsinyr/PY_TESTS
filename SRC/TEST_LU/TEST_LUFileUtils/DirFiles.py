@@ -85,16 +85,24 @@ def FuncDir (ADir: str, APathDest: str):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: str, APathDest: str):
+def FuncFile (AFileName: str, APathDest: str):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-    Lstat = os.stat(AFile)
-    LAttr = LUFile.GetFileAttr(AFile)
+    Lstat = os.stat(AFileName)
+    LAttr = LUFile.GetFileAttr(AFileName)
     # Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
-    # LUFile.SetFileAttr (AFile, Lflags, True)
-    LFileSize = LUFile.GetFileSize (AFile)
-    LFileDateTime = LUFile.GetFileDateTime (AFile)
+    # LUFile.SetFileAttr (AFileName, Lflags, True)
+
+    LPureWindowsPath = LUFile.GetPureWindowsPath (AFileName)
+    LPureWindowsPath = LUFile.GetPureWindowsPath ('TEST_LUFileUtils\\')
+    print ('LPureWindowsPath:', LPureWindowsPath)
+    LWindowsPath = LUFile.GetWindowsPath (AFileName)
+    LWindowsPath = LUFile.GetPureWindowsPath ('TEST_LUFileUtils\\')
+    print ('LWindowsPath:', LWindowsPath)
+
+    LFileSize = LUFile.GetFileSize (AFileName)
+    LFileDateTime = LUFile.GetFileDateTime (AFileName)
     s = f'{LFileDateTime[2]:%d.%m.%Y  %H:%M} {LFileDateTime[2]:%d.%m.%Y  %H:%M} {LFileSize:d}'
     LULog.LoggerTOOLS_AddLevel (LULog.TEXT, s)
 #endfunction
@@ -104,12 +112,11 @@ def FuncFile (AFile: str, APathDest: str):
 #------------------------------------------
 def main ():
 #beginfunction
-    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
                         r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\LOG',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     PrintInfoObject('-----main----')
     PrintInfoObject(main)
 

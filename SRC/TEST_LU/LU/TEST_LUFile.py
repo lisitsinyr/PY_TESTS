@@ -285,7 +285,9 @@ def TEST_FileSearch ():
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
+                        r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\LOG',
+                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
     TEST_DirectoryExists ()
     TEST_ForceDirectories ()

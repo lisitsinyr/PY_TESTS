@@ -73,12 +73,12 @@ def FuncDir (ADir: str):
 #------------------------------------------
 # FuncFile ()
 #------------------------------------------
-def FuncFile (AFile: str):
+def FuncFile (AFileName: str):
     """FuncFile"""
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     # LULog.LoggerAPPS_AddLevel (LULog.TEXT, AFile.path)
-    Lstat = os.stat(AFile)
+    Lstat = os.stat (AFileName)
     # print('stat_name:',Lstat)
     # Lstat = os.stat(AFile.path)
     # print('stat_path:',Lstat)
@@ -89,12 +89,11 @@ def FuncFile (AFile: str):
 #------------------------------------------
 def main():
 #beginfunction
-    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
                         r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\LOG',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
+    # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     LUDoc.PrintInfoObject('-----main----')
     LUDoc.PrintInfoObject(main)
 
