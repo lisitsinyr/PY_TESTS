@@ -58,13 +58,13 @@ import LUThread
 import LUYouTube
 import LUDoc
 
-if platform.system() == 'Windows':
-    import LUNetwork
-    import LUNumUtils
-    import LUTimer
-    import LUVersion
-    import LUParserREG
-#endif
+# if platform.system() == 'Windows':
+#     import LUNetwork
+#     import LUNumUtils
+#     import LUTimer
+#     import LUVersion
+#     import LUParserREG
+# #endif
 
 #------------------------------------------
 #CONST
@@ -159,7 +159,7 @@ def main ():
     # LUFile.FileDelete (_OutFile)
 
     LULog.LoggerTOOLS.setLevel(logging.INFO)
-    LULog.LoggerTOOLS.setLevel(logging.DEBUG)
+    # LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
 
