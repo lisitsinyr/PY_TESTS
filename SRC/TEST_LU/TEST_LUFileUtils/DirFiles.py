@@ -58,13 +58,13 @@ import LUThread
 import LUYouTube
 import LUDoc
 
-# if platform.system() == 'Windows':
-#     import LUNetwork
-#     import LUNumUtils
-#     import LUTimer
-#     import LUVersion
-#     import LUParserREG
-# #endif
+if platform.system() == 'Windows':
+    import LUNetwork
+    import LUNumUtils
+    import LUTimer
+    import LUVersion
+    import LUParserREG
+#endif
 
 #------------------------------------------
 #CONST
