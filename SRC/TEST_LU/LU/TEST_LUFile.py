@@ -17,6 +17,7 @@ __annotations__ = """
 #------------------------------------------
 # БИБЛИОТЕКИ python
 #------------------------------------------
+import platform
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -30,6 +31,9 @@ import LUFile
 import LUos
 import LUErrors
 from LUDoc import *
+if platform.system() == 'Windows':
+    import LUParserREG
+#endif
 
 def TEST_LUFile ():
     """TEST_LUFile"""
@@ -63,7 +67,7 @@ def TEST_DirectoryExists ():
 
 def TEST_ForceDirectories ():
     """TEST_ForceDirectories"""
-    LPath1 = "D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU"
+    LPath1 = r"D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\WORK"
 #beginfunction
     PrintInfoObject('---------TEST_ForceDirectories----------')
     PrintInfoObject(TEST_ForceDirectories)
@@ -77,8 +81,7 @@ def TEST_ForceDirectories ():
 
 def TEST_GetFileDateTime ():
     """TEST_GetFileDateTime"""
-    #LFileName = "D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\TEST_LU.py"
-    LFileName = "TEST_LU.py"
+    LFileName = r"D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\WORK\LOGGING_FILEINI.log"
 #beginfunction
     PrintInfoObject('---------TEST_GetFileDateTime----------')
     PrintInfoObject(TEST_GetFileDateTime)
@@ -97,7 +100,7 @@ def TEST_GetFileDateTime ():
 def TEST_WriteStrToFile ():
     """TEST_WriteStrToFile"""
     LStr = 'Тестовая строка'
-    LFileName = "D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\TEST.txt"
+    LFileName = r"D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\WORK\TEST.txt"
 #beginfunction
     PrintInfoObject('---------TEST_WriteStrToFile----------')
     PrintInfoObject(TEST_WriteStrToFile)
@@ -158,8 +161,8 @@ def TEST_GetFileEncoding ():
     PrintInfoObject(TEST_GetFileEncoding)
 
 
-    #LFileName = 'D:\\PROJECTS_LYR\\CHECK_LIST\\05_DESKTOP\\02_Python\\PROJECTS_PY\\TESTS_PY\\TEST_LU\\TEST_LUsys.py'
-    LFileName = 'TEST_LUsys.py'
+    LFileName = r"D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\WORK\FAKE\FakeFile_1_1.txt"
+
     LEncoding = LUFile.GetFileEncoding (LFileName)
     if LEncoding == '':
         LEncoding = LUFile.cDefaultEncoding
@@ -208,7 +211,7 @@ def TEST_GetDirNameYYMM ():
     PrintInfoObject('---------TEST_GetDirNameYYMM----------')
     PrintInfoObject(TEST_GetDirNameYYMM)
 
-    LPath1 = r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\TEST_LU\\'
+    LPath1 = r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\TEST_LU'
     LPath2 = r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\TEST_LU'
     LNow: datetime = datetime.datetime.now()
     LDirNameYYMM1: str = LUFile.GetDirNameYYMM(LPath1, LNow)
@@ -231,15 +234,62 @@ def TEST_GetTempDir ():
 #endfunction
 
 def TEST_SearchFile ():
-    """TEST_SearchFile"""
+    """TTEST_SearchFileExt"""
 #beginfunction
     PrintInfoObject('---------TEST_SearchFile----------')
     PrintInfoObject(TEST_SearchFile)
 
-    LFileName = 'TEST_LUFile.py'
-    LFullFileName = LUFile.SearchFile(LFileName,'.py')
-    s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LDir = r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\WORK\FAKE'
+    LFileName = 'FakeFile_1_2.txt'
+    LMask = r'.*.txt'
+    LMask = ''
+    LExt = '.txt'
+    LExt = ''
+
+    LList = LUFile.__SearchFile(LDir, LFileName, LMask, LExt, False)
+    for Litem in LList:
+        s = f'FullFileName: {Litem}'
+        LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    #endif
+
+#endfunction
+
+def TEST_SearchFileDirs ():
+    """TEST_SearchFileDirs"""
+#beginfunction
+    PrintInfoObject('---------TEST_SearchFileDirs----------')
+    PrintInfoObject(TEST_SearchFileDirs)
+
+    LpathVar = LUos.GetEnvVar('Path').split(';')
+    # print (LpathVar)
+
+    # #------------------------------
+    # # GetKeyReg
+    # #------------------------------
+    # LSectionName = r'SYSTEM\CurrentControlSet\Control\Session Manager\Environment'
+    # LKeyName = 'Path'
+    # # LValue, LType = LUParserREG.GREGParser.GetKeyReg (LUParserREG.THKEYConst.cHKLM, LSectionName, LKeyName)
+    # # s = f'{LValue}, {LType}'
+    # s = LUParserREG.GREGParser.GetKeyReg (LUParserREG.THKEYConst.cHKLM, LSectionName, LKeyName)
+    # print(s)
+
+    LpathVar = [r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\WORK\FAKE']
+
+    LFileName = 'jdeprscan.exe'
+    LFileName = ''
+
+    LMask = r'.*.txt'
+    LMask = ''
+
+    LExt = '.txt'
+    # LExt = '.exe'
+    # LExt = ''
+
+    LListDirs = LUFile.SearchFileDirs(LpathVar, LFileName, LMask, LExt, False)
+    for Litem in LListDirs:
+        s = f'FullFileName: {Litem}'
+        LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    #endif
 #endfunction
 
 def TEST_SearchINIFile ():
@@ -248,10 +298,16 @@ def TEST_SearchINIFile ():
     PrintInfoObject('---------TEST_SearchINIFile----------')
     PrintInfoObject(TEST_SearchINIFile)
 
+    LpathVar = [r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY']
     LFileName = 'TEST_LU.ini'
-    LFullFileName = LUFile.SearchFile(LFileName,'.ini')
-    s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LMask = ''
+    LExt = '.ini'
+
+    LListDirs = LUFile.SearchFileDirs(LpathVar, LFileName, LMask, LExt, True)
+    for Litem in LListDirs:
+        s = f'FullFileName: {Litem}'
+        LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    #endif
 #endfunction
 
 def TEST_SearchEXEFile ():
@@ -260,26 +316,16 @@ def TEST_SearchEXEFile ():
     PrintInfoObject('---------TEST_SearchEXEFile----------')
     PrintInfoObject(TEST_SearchEXEFile)
 
+    LpathVar = [r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY']
     LFileName = 'python.exe'
-    LFullFileName = LUFile.SearchFile(LFileName,'.exe')
-    s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
-#endfunction
+    LMask = ''
+    LExt = '.exe'
 
-def TEST_FileSearch ():
-    """TEST_FileSearch"""
-#beginfunction
-    PrintInfoObject('---------TEST_FileSearch----------')
-    PrintInfoObject(TEST_FileSearch)
-
-    LFileName = 'python.exe'
-    LFileName = 'notepad.exe'
-    LFileName = 'TEST_LU.ini'
-    LWinDir = LUos.GetEnvVar ('WinDir')
-    LPath = LUos.GetCurrentDir() + ';' + LWinDir
-    LFullFileName = LUFile.FileSearch (LFileName, LPath)
-    s = f'FullFileName: {LFullFileName}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LListDirs = LUFile.SearchFileDirs (LpathVar, LFileName, LMask, LExt, True)
+    for Litem in LListDirs:
+        s = f'FullFileName: {Litem}'
+        LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    #endif
 #endfunction
 
 #------------------------------------------
@@ -289,31 +335,35 @@ def main ():
                         r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\LOG',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
-    TEST_DirectoryExists ()
-    TEST_ForceDirectories ()
-    TEST_GetFileDateTime ()
+    # TEST_DirectoryExists ()
+    # TEST_ForceDirectories ()
+    # TEST_GetFileDateTime ()
 
-    try:
-        TEST_WriteStrToFile ()
-    except LUErrors.LUFileError_FileERROR as ERROR:
-        ERROR.Message = 'Тестовое сообщение'
-        s = f'!!!! {ERROR}'
-        LULog.LoggerAPPS_AddError(s)
-    else:
-        ...
-    #endtry
+    # try:
+    #     TEST_WriteStrToFile ()
+    # except LUErrors.LUFileError_FileERROR as ERROR:
+    #     ERROR.Message = 'Тестовое сообщение'
+    #     s = f'!!!! {ERROR}'
+    #     LULog.LoggerAPPS_AddError(s)
+    # else:
+    #     ...
+    # #endtry
 
-    TEST_Extract_Get ()
-    TEST_GetFileEncoding ()
-    TEST_IncludeTrailingBackslash ()
+    # TEST_Extract_Get ()
+    # TEST_GetFileEncoding ()
+    # TEST_IncludeTrailingBackslash ()
+
     TEST_GetDirNameYYMMDD ()
     TEST_GetDirNameYYMM ()
-    TEST_GetTempDir ()
-    TEST_SearchFile ()
-    TEST_SearchINIFile ()
-    TEST_SearchEXEFile ()
-    TEST_FileSearch ()
-    ...
+
+    # TEST_GetTempDir ()
+
+    # TEST_SearchFile ()
+    # TEST_SearchFileDirs ()
+
+    # TEST_SearchINIFile ()
+    # TEST_SearchEXEFile ()
+
 #endfunction
 
 #------------------------------------------

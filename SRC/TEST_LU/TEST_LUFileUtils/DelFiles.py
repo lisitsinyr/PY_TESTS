@@ -21,6 +21,7 @@ import time
 import datetime
 import logging
 import argparse
+import platform
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -35,20 +36,15 @@ import LUConst
 import LUDateTime
 import LUDecotators
 import LUDict
-from LUDoc import *
-#import LUDoc
 import LUErrors
 import LUFile
 import LUFileUtils
 import LULog
-import LUNetwork
-import LUNumUtils
 import LUObjects
 import LUObjectsYT
 import LUos
 import LUParserARG
 import LUParserINI
-#import LUParserREG
 import LUProc
 import LUQThread
 import LUQTimer
@@ -58,9 +54,16 @@ import LUStrUtils
 import LUSupport
 import LUsys
 import LUThread
-#import LUTimer
-import LUVersion
 import LUYouTube
+import LUDoc
+
+if platform.system() == 'Windows':
+    import LUNetwork
+    import LUNumUtils
+    import LUTimer
+    import LUVersion
+    import LUParserREG
+#endif
 
 #------------------------------------------
 #CONST
@@ -109,8 +112,8 @@ def main ():
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
-    PrintInfoObject('-----main----')
-    PrintInfoObject(main)
+    LUDoc.PrintInfoObject('-----main----')
+    LUDoc.PrintInfoObject(main)
 
     global GDir
     global GMask
