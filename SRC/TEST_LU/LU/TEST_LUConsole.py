@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 __annotations__ = """
  =======================================================
- Copyright (c) 2023
+ Copyright (c) 2023-2024
  Author:
      Lisitsin Y.R.
  Project:
@@ -41,6 +41,7 @@ import LULog
 import LUConst
 from LUDoc import *
 import LUConsole
+import LUSupport
 
 #------------------------------------------
 # TEST_LUConsole ()
@@ -57,7 +58,7 @@ def TEST_LUConsole ():
     LULog.LoggerAPPS_AddInfo (sys.stdout.isatty())
     LULog.LoggerAPPS_AddInfo (sys.stdout.mode)
     # if sys.stdout.isatty ():
-    if LUConsole.ISTerminal ():
+    if LUSupport.ISTerminal ():
         LULog.LoggerAPPS_AddInfo ('Это терминал WINDOWS')
     else:
         LULog.LoggerAPPS_AddInfo ('Это терминал piped or redirected')
@@ -232,7 +233,7 @@ def main ():
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
-    print (f'ISTerminal={LUConsole.ISTerminal ()}')
+    print (f'ISTerminal={LUSupport.ISTerminal ()}')
 
     TEST_LUConsole ()
     TEST_Write ()
