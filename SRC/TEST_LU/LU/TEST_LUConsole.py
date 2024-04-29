@@ -58,7 +58,7 @@ def TEST_LUConsole ():
     LULog.LoggerAPPS_AddInfo (sys.stdout.isatty())
     LULog.LoggerAPPS_AddInfo (sys.stdout.mode)
     # if sys.stdout.isatty ():
-    if LUSupport.ISTerminal ():
+    if LUSupport.IsTerminal ():
         LULog.LoggerAPPS_AddInfo ('Это терминал WINDOWS')
     else:
         LULog.LoggerAPPS_AddInfo ('Это терминал piped or redirected')
@@ -233,7 +233,7 @@ def main ():
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
-    print (f'ISTerminal={LUSupport.ISTerminal ()}')
+    print (f'ISTerminal={LUSupport.IsTerminal ()}')
 
     TEST_LUConsole ()
     TEST_Write ()

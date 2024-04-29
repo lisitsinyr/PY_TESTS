@@ -30,40 +30,40 @@ import platform
 import pandas
 
 #------------------------------------------
-# БИБЛИОТЕКИ LU
+# БИБЛИОТЕКИ lyr.LU
 #------------------------------------------
-import LUConsole
-import LUConst
-import LUDateTime
-import LUDecotators
-import LUDict
-import LUErrors
-import LUFile
-import LUFileUtils
-import LULog
-import LUObjects
-import LUObjectsYT
-import LUos
-import LUParserARG
-import LUParserINI
-import LUProc
-import LUQThread
-import LUQTimer
-import LUSheduler
-import LUStrDecode
-import LUStrUtils
-import LUSupport
-import LUsys
-import LUThread
-import LUYouTube
-import LUDoc
+# import lyr.LUConsole
+# import lyr.LUConst
+# import lyr.LUDateTime
+# import lyr.LUDecotators
+# import lyr.LUDict
+# import lyr.LUErrors
+import lyr.LUFile as LUFile
+import lyr.LUFileUtils as LUFileUtils
+import lyr.LUDoc as LUDoc
+import lyr.LULog as LULog
+# import lyr.LUObjects
+# import lyr.LUObjectsYT
+# import lyr.LUos
+import lyr.LUParserARG as LUParserARG
+# import lyr.LUParserINI
+# import lyr.LUProc
+# import lyr.LUQThread
+# import lyr.LUQTimer
+# import lyr.LUSheduler
+# import lyr.LUStrDecode
+# import lyr.LUStrUtils
+# import lyr.LUSupport
+# import lyr.LUsys
+# import lyr.LUThread
+# import lyr.LUYouTube
 
 if platform.system() == 'Windows':
-    import LUNetwork
-    import LUNumUtils
-    import LUTimer
-    import LUVersion
-    import LUParserREG
+    import lyr.LUNetwork as LUNetwork
+    import lyr.LUNumUtils as LUNumUtils
+    import lyr.LUTimer as LUTimer
+    import lyr.LUVersion as LUVersion
+    import lyr.LUParserREG as LUParserREG
 #endif
 
 #------------------------------------------
@@ -78,7 +78,7 @@ def FuncDir (ADir: str, APathDest: str):
 #beginfunction
     # print ('DEBUG: function ',sys._getframe (0).f_code.co_name, '...')
     Lstat = os.stat(ADir)
-    LAttr = LUFile.GetFileAttr (ADir)
+    LAttr = (LUFile.GetFileAttr (ADir))
     LDirSize = LUFile.GetDirectoryTreeSize (ADir)
     LDirDateTime = LUFile.GetDirDateTime (ADir)
     s = f'{LDirDateTime[2]:%d.%m.%Y  %H:%M} {LDirDateTime[3]:%d.%m.%Y  %H:%M} {LDirSize:d}'
@@ -95,14 +95,14 @@ def FuncFile (AFileName: str, APathDest: str):
     Lstat = os.stat(AFileName)
     LAttr = LUFile.GetFileAttr(AFileName)
     # Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
-    # LUFile.SetFileAttr (AFileName, Lflags, True)
+    # lyr.LUFile.SetFileAttr (AFileName, Lflags, True)
 
     LPureWindowsPath = LUFile.GetPureWindowsPath (AFileName)
     LPureWindowsPath = LUFile.GetPureWindowsPath ('TEST_LUFileUtils\\')
-    print ('LPureWindowsPath:', LPureWindowsPath)
+    # print ('LPureWindowsPath:', LPureWindowsPath)
     LWindowsPath = LUFile.GetWindowsPath (AFileName)
     LWindowsPath = LUFile.GetPureWindowsPath ('TEST_LUFileUtils\\')
-    print ('LWindowsPath:', LWindowsPath)
+    # print ('LWindowsPath:', LWindowsPath)
 
     LFileSize = LUFile.GetFileSize (AFileName)
     LFileDateTime = LUFile.GetFileDateTime (AFileName)
@@ -149,17 +149,17 @@ def main ():
     #----------------------------------------------------------------
 
     # GDir = r'D:\WORK\!!HISTORY'
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
+    # lyr.LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
     # GMask = '.*'
-    # LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
+    # lyr.LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
     _Option = 1
     _OutFile = 'DirFiles.txt'
     _OutFile = 'CONSOLE'
-    # LUFile.FileDelete (_OutFile)
+    # lyr.LUFile.FileDelete (_OutFile)
 
     LULog.LoggerTOOLS.setLevel(logging.INFO)
-    # LULog.LoggerTOOLS.setLevel(logging.DEBUG)
+    # lyr.LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
 
