@@ -28,10 +28,10 @@ import pandas
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LULog
-import LUConst
-from LUDoc import *
-import LUos
+import lyrpy.LULog as LULog
+import lyrpy.LUConst as LUConst
+from lyrpy.LUDoc import *
+import lyrpy.LUos as LUos
 
 def TEST_LUos ():
     """TEST_LUos"""

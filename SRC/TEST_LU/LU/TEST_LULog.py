@@ -28,17 +28,15 @@ import argparse
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-# from LULog import GFileMemoLog, GLogger
-# from LULog import LULogger
-import LULog
+import lyrpy.LULog as LULog
 
-from LUDoc import PrintInfoObject
-import LUos
-import LUFile
-import LUDateTime
+from lyrpy.LUDoc import *
+import lyrpy.LUos as LUos
+import lyrpy.LUFile as LUFile
+import lyrpy.LUDateTime as LUDateTime
 
-from LUParserARG import GArgParser
-from LUParserINI import GINIFile
+from lyrpy.LUParserARG import GArgParser
+from lyrpy.LUParserINI import GINIFile
 
 def TEST_LULog ():
     """ TEST_LULog """

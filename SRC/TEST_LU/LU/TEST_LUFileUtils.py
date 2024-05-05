@@ -26,10 +26,10 @@ import logging
 #------------------------------------------
 # БИБЛИОТЕКА LU
 #------------------------------------------
-import LUConst
-import LULog
-import LUFile
-from LUDoc import *
+import lyrpy.LUConst as LUConst
+import lyrpy.LULog as LULog
+import lyrpy.LUFile as LUFile
+from lyrpy.LUDoc import *
 
 #------------------------------------------
 # TEST_re ()

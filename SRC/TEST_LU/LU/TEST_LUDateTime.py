@@ -27,9 +27,8 @@ __annotations__ = """
 #------------------------------------------
 # import LULog
 # import LUConst
-from LUDoc import *
-import LUDateTime
-# import LUConsole
+from lyrpy.LUDoc import *
+import lyrpy.LUDateTime as LUDateTime
 
 def TEST_LUDateTime ():
     """TEST_LUDateTime"""

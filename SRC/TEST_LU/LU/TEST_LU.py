@@ -25,15 +25,15 @@ __annotations__ = """
 #------------------------------------------
 # БИБЛИОТЕКА LU
 #------------------------------------------
-import LUConst
-import LULog
-from LUDoc import *
+import lyrpy.LUConst as LUConst
+import lyrpy.LULog as LULog
+import lyrpy.LUDoc as LUDoc
 
 def TEST_01 ():
     """TEST_"""
 #beginfunction
-    PrintInfoObject('-----TEST_01----')
-    PrintInfoObject(TEST_01)
+    LUDoc.PrintInfoObject('-----TEST_01----')
+    LUDoc.PrintInfoObject(TEST_01)
 #endfunction
 
 #------------------------------------------

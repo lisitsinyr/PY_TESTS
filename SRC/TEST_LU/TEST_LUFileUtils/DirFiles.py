@@ -30,40 +30,40 @@ import platform
 import pandas
 
 #------------------------------------------
-# БИБЛИОТЕКИ lyr.LU
+# БИБЛИОТЕКИ lyrpy.LU
 #------------------------------------------
-# import lyr.LUConsole
-# import lyr.LUConst
-# import lyr.LUDateTime
-# import lyr.LUDecotators
-# import lyr.LUDict
-# import lyr.LUErrors
-import lyr.LUFile as LUFile
-import lyr.LUFileUtils as LUFileUtils
-import lyr.LUDoc as LUDoc
-import lyr.LULog as LULog
-# import lyr.LUObjects
-# import lyr.LUObjectsYT
-# import lyr.LUos
-import lyr.LUParserARG as LUParserARG
-# import lyr.LUParserINI
-# import lyr.LUProc
-# import lyr.LUQThread
-# import lyr.LUQTimer
-# import lyr.LUSheduler
-# import lyr.LUStrDecode
-# import lyr.LUStrUtils
-# import lyr.LUSupport
-# import lyr.LUsys
-# import lyr.LUThread
-# import lyr.LUYouTube
+# import lyrpy.LUConsole
+# import lyrpy.LUConst
+# import lyrpy.LUDateTime
+# import lyrpy.LUDecotators
+# import lyrpy.LUDict
+# import lyrpy.LUErrors
+import lyrpy.LUFile as LUFile
+import lyrpy.LUFileUtils as LUFileUtils
+import lyrpy.LUDoc as LUDoc
+import lyrpy.LULog as LULog
+# import lyrpy.LUObjects
+# import lyrpy.LUObjectsYT
+# import lyrpy.LUos
+import lyrpy.LUParserARG as LUParserARG
+# import lyrpy.LUParserINI
+# import lyrpy.LUProc
+# import lyrpy.LUQThread
+# import lyrpy.LUQTimer
+# import lyrpy.LUSheduler
+# import lyrpy.LUStrDecode
+# import lyrpy.LUStrUtils
+# import lyrpy.LUSupport
+# import lyrpy.LUsys
+# import lyrpy.LUThread
+# import lyrpy.LUYouTube
 
 if platform.system() == 'Windows':
-    import lyr.LUNetwork as LUNetwork
-    import lyr.LUNumUtils as LUNumUtils
-    import lyr.LUTimer as LUTimer
-    import lyr.LUVersion as LUVersion
-    import lyr.LUParserREG as LUParserREG
+    import lyrpy.LUNetwork as LUNetwork
+    import lyrpy.LUNumUtils as LUNumUtils
+    import lyrpy.LUTimer as LUTimer
+    import lyrpy.LUVersion as LUVersion
+    import lyrpy.LUParserREG as LUParserREG
 #endif
 
 #------------------------------------------
@@ -95,7 +95,7 @@ def FuncFile (AFileName: str, APathDest: str):
     Lstat = os.stat(AFileName)
     LAttr = LUFile.GetFileAttr(AFileName)
     # Lflags = stat.FILE_ATTRIBUTE_SYSTEM | stat.FILE_ATTRIBUTE_HIDDEN | stat.FILE_ATTRIBUTE_READONLY
-    # lyr.LUFile.SetFileAttr (AFileName, Lflags, True)
+    # lyrpy.LUFile.SetFileAttr (AFileName, Lflags, True)
 
     LPureWindowsPath = LUFile.GetPureWindowsPath (AFileName)
     LPureWindowsPath = LUFile.GetPureWindowsPath ('TEST_LUFileUtils\\')
@@ -149,17 +149,17 @@ def main ():
     #----------------------------------------------------------------
 
     # GDir = r'D:\WORK\!!HISTORY'
-    # lyr.LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
+    # lyrpy.LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PDir = {GDir}')
     # GMask = '.*'
-    # lyr.LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
+    # lyrpy.LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'PMask = {GMask}')
 
     _Option = 1
     _OutFile = 'DirFiles.txt'
     _OutFile = 'CONSOLE'
-    # lyr.LUFile.FileDelete (_OutFile)
+    # lyrpy.LUFile.FileDelete (_OutFile)
 
     LULog.LoggerTOOLS.setLevel(logging.INFO)
-    # lyr.LULog.LoggerTOOLS.setLevel(logging.DEBUG)
+    # lyrpy.LULog.LoggerTOOLS.setLevel(logging.DEBUG)
 
     LUFileUtils.DirFiles(GDir, GMask, True, _OutFile, _Option, FuncDir, FuncFile)
 

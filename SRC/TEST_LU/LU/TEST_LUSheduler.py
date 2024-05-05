@@ -30,9 +30,9 @@ import datetime
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LUSheduler
-from LUDoc import *
-import LUDateTime
+import lyrpy.LUSheduler as LUSheduler
+from lyrpy.LUDoc import *
+import lyrpy.LUDateTime as LUDateTime
 
 GShedulerThread = LUSheduler.TShedulerThread ()
 GShedulerTimer = LUSheduler.TShedulerTimer (1,None)

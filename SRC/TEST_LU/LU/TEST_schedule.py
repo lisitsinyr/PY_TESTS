@@ -28,7 +28,7 @@ import threading
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-from LUDoc import *
+from lyrpy.LUDoc import *
 
 def TEST_schedule ():
     """TEST_schedule"""

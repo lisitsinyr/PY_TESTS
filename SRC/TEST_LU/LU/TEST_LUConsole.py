@@ -37,11 +37,11 @@ import progress.bar
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LULog
-import LUConst
-from LUDoc import *
-import LUConsole
-import LUSupport
+import lyrpy.LULog as LULog
+import lyrpy.LUConst as LUConst
+from lyrpy.LUDoc import *
+import lyrpy.LUConsole as LUConsole
+import lyrpy.LUSupport as LUSupport
 
 #------------------------------------------
 # TEST_LUConsole ()

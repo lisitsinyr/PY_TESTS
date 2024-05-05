@@ -27,8 +27,8 @@ __annotations__ = """
 #------------------------------------------
 
 #------------------------------------------
-import LUsys
-from LUDoc import *
+import lyrpy.LUsys as LUsys
+from lyrpy.LUDoc import *
 
 def TEST_LUsys ():
     """TEST_LUsys"""

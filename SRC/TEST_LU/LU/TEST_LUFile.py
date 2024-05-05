@@ -27,12 +27,12 @@ import datetime
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LUFile
-import LUos
-import LUErrors
-from LUDoc import *
+import lyrpy.LUFile as LUFile
+import lyrpy.LUos as LUos
+import lyrpy.LUErrors as LUErrors
+from lyrpy.LUDoc import *
 if platform.system() == 'Windows':
-    import LUParserREG
+    import lyrpy.LUParserREG as LUParserREG
 #endif
 
 def TEST_LUFile ():

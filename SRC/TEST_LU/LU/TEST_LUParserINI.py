@@ -26,8 +26,8 @@ import logging
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LUParserINI
-from LUDoc import *
+import lyrpy.LUParserINI as LUParserINI
+from lyrpy.LUDoc import *
 
 def TEST_LUParserINI ():
     """TEST_LUParserINI"""
@@ -116,7 +116,9 @@ def TEST_TINIFile_02 ():
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging ('LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
+                        r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\LOG',
+                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
     TEST_LUParserINI ()
     TEST_TINIFile ()

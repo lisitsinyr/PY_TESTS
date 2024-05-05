@@ -19,7 +19,7 @@ __annotations__ = """
 #------------------------------------------
 import sys
 import argparse
-
+import platform
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
 #------------------------------------------
@@ -27,8 +27,8 @@ import argparse
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LUParserARG
-from LUDoc import *
+import lyrpy.LUParserARG as LUParserARG
+from lyrpy.LUDoc import *
 
 def TEST_LUParserARG ():
     """TEST_LUParserARG"""

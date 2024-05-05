@@ -19,6 +19,7 @@ __annotations__ ="""
 #------------------------------------------
 import sys
 from winreg import *
+import platform
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -27,8 +28,8 @@ from winreg import *
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import LUParserREG
-from LUDoc import *
+import lyrpy.LUParserREG as LUParserREG
+from lyrpy.LUDoc import *
 
 def TEST_LUParserREG ():
     """TEST_LUParserREG"""
@@ -152,7 +153,6 @@ def TEST_Regedit ():
     LFileName = r'D:\PROJECTS_LYR\CHECK_LIST\05_DESKTOP\02_Python\PROJECTS_PY\TESTS_PY\TEST_LU\SOFTWARE.reg'
     LFileName = 'SOFTWARE.reg'
     LSection = r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
-    LSection = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
     LUParserREG.SaveRegToFile_regedit (LFileName, LUParserREG.THKEYConst.cHKCU, LSection)
 #endfunction
 

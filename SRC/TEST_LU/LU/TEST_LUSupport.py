@@ -31,8 +31,8 @@ from sys import executable
 #------------------------------------------
 # БИБЛИОТЕКА LU
 #------------------------------------------
-import LUSupport
-from LUDoc import *
+import lyrpy.LUSupport as LUSupport
+from lyrpy.LUDoc import *
 
 """
 Синтаксис subprocess.run
@@ -78,7 +78,7 @@ def TEST_01 ():
     PrintInfoObject(TEST_01)
     print ('01.-----------------------------')
     # CompletedProcess (args = "echo 'Subprocesses are cool!", returncode = 0)
-    LCompletedProcess = run ('C:\startup866.cmd', shell = True)
+    LCompletedProcess = run (r'C:\startup866.cmd', shell = True)
     LCompletedProcess = run ("echo 'Subprocesses are cool!", shell = True)
     LCompletedProcess = run ("echo 'Это по русски!", shell = True, encoding = 'cp866')
 

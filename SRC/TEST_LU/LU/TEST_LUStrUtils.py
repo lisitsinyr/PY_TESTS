@@ -33,8 +33,8 @@ import itertools
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-from LUDoc import *
-import LUStrUtils
+from lyrpy.LUDoc import *
+import lyrpy.LUStrUtils as LUStrUtils
 
 def TEST_LUStrUtils ():
     """TEST_LUStrUtils"""

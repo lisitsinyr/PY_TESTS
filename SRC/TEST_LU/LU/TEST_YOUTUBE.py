@@ -31,14 +31,14 @@ import pytube.exceptions
 #------------------------------------------
 # БИБЛИОТЕКИ LU
 #------------------------------------------
-from LUDoc import *
-import LUos
-import LUObjectsYT
-import LUYouTube
-import LUFile
-import LUStrUtils
-import LUDict
-import LUDateTime
+from lyrpy.LUDoc import *
+import lyrpy.LUos as LUos
+import lyrpy.LUObjectsYT as LUObjectsYT
+import lyrpy.LUYouTube as LUYouTube
+import lyrpy.LUFile as LUFile
+import lyrpy.LUStrUtils as LUStrUtils
+import lyrpy.LUDict as LUDict
+import lyrpy.LUDateTime as LUDateTime
 
 def TEST_YOUTUBE_Proc ():
     """TEST_YOUTUBE_Proc"""

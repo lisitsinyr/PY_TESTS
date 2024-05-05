@@ -34,11 +34,11 @@ import tkinter as tk
 #------------------------------------------
 # БИБЛИОТЕКИ LU
 #------------------------------------------
-import LULog
-import LUConst
-from LUDoc import *
-import LUObjectsYT
-import LUYouTube
+import lyrpy.LULog as LULog
+import lyrpy.LUConst as LUConst
+from lyrpy.LUDoc import *
+import lyrpy.LUObjectsYT as LUObjects
+import lyrpy.LUYouTube as LUYouTube
 
 is_paused = is_cancelled = False
 
