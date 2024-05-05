@@ -45,9 +45,6 @@ def TEST_TINIFile ():
 
     LFileName = 'TEST_LU.ini'
     LINIFile = LUParserINI.TINIFile()
-
-    print(LFileName)
-
     LINIFile.FileNameINI = LFileName
 
     LSectionName = 'general 01'
