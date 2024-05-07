@@ -5,9 +5,12 @@ description = ""
 authors = ["lisitsinyr <lisitsinyr@gmail.com>"]
 readme = "README.md"
 
+include = [
+    { path = "DOC", format = "sdist" }
+]
+
 [tool.poetry.dependencies]
 python = "^3.12"
-
 
 [build-system]
 requires = ["poetry-core"]
