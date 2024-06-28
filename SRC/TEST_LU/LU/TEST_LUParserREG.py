@@ -18,8 +18,11 @@ __annotations__ ="""
 # БИБЛИОТЕКИ python
 #------------------------------------------
 import sys
-from winreg import *
 import platform
+
+if platform.system() == 'Windows':
+    from winreg import *
+#endif
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -230,13 +233,12 @@ def main ():
 #------------------------------------------
 #beginmodule
 if __name__ == "__main__":
-    if LUos.GOSInfo.system == 'Windows':
+    if platform.system() == 'Windows':
+    #if LUos.GOSInfo.system == 'Windows':
         print("win32")
         main ()
     #endif
 
-    #if platform.system() == 'Windows':
-    #endif
 #endif
 
 #endmodule
