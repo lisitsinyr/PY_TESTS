@@ -421,8 +421,10 @@ def TEST_Log_LoggerFILEINI_01 ():
             TEST_PrintLogger (LLogger)
     #endfunction
 
+
     TEST_Log_LoggerFILEINI_root ()
     TEST_Log_LoggerFILEINI_log02 ()
+
 #endfunction
 
 def TEST_Log_LoggerFILEINI_02 ():
@@ -548,8 +550,12 @@ def main ():
     TEST_Log_TLogger ()
 
     TEST_Log_LoggerCONFIG ()
-    TEST_Log_LoggerFILEINI_01 ()
-    TEST_Log_LoggerFILEINI_02 ()
+
+    if LUos.GOSInfo.system == 'Windows':
+        TEST_Log_LoggerFILEINI_01 ()
+        TEST_Log_LoggerFILEINI_02 ()
+    #endif
+
     TEST_Log_LoggerBASIC ()
     ...
 #endfunction
