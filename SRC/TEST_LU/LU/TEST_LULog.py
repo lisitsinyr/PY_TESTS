@@ -374,7 +374,10 @@ def TEST_Log_LoggerCONFIG ():
     def TEST_Log_LoggerCONFIG_root ():
         """TEST_Log_LoggerCONFIG_root"""
     #beginfunction
-        LLogger = LULog.CreateLoggerCONFIG (LULog.CDefaultFileLogCONFIG, 'root')
+        LLogger = LULog.CreateLoggerCONFIG (LULog.CDefaultFileLogCONFIG, 'root',
+                                            'LOG', 'LOGGING_CONFIG.log',
+                                            'LOGGING_FILEINI_json.log')
+
         if not LLogger is None:
             TEST_PrintLogger (LLogger)
     #endfunction
@@ -382,7 +385,10 @@ def TEST_Log_LoggerCONFIG ():
     def TEST_Log_LoggerCONFIG_log02 ():
         """TEST_Log_LoggerCONFIG_log02"""
     #beginfunction
-        LLogger = LULog.CreateLoggerCONFIG (LULog.CDefaultFileLogCONFIG, 'log02')
+        LLogger = LULog.CreateLoggerCONFIG (LULog.CDefaultFileLogCONFIG, 'log02',
+                                            'LOG', 'LOGGING_CONFIG.log',
+                                            'LOGGING_FILEINI_json.log'
+                                            )
         if not LLogger is None:
             TEST_PrintLogger (LLogger)
     #endfunction
@@ -400,7 +406,8 @@ def TEST_Log_LoggerFILEINI_01 ():
     def TEST_Log_LoggerFILEINI_root ():
         """TEST_Log_LoggerFILEINI_01_root"""
     #beginfunction
-        LLogger = LULog.CreateLoggerFILEINI (LULog.CDefaultFileLogINI, 'root')
+        LLogger = LULog.CreateLoggerFILEINI (LULog.CDefaultFileLogINI, 'root',
+                                             'LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
         if not LLogger is None:
             TEST_PrintLogger (LLogger)
     #endfunction
@@ -408,7 +415,8 @@ def TEST_Log_LoggerFILEINI_01 ():
     def TEST_Log_LoggerFILEINI_log02 ():
         """TEST_Log_LoggerFILEINI_01_log02"""
     #beginfunction
-        LLogger = LULog.CreateLoggerFILEINI (LULog.CDefaultFileLogINI, 'log02')
+        LLogger = LULog.CreateLoggerFILEINI (LULog.CDefaultFileLogINI, 'log02',
+                                             'LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
         if not LLogger is None:
             TEST_PrintLogger (LLogger)
     #endfunction
