@@ -30,6 +30,7 @@ import platform
 #------------------------------------------
 import lyrpy.LUParserREG as LUParserREG
 from lyrpy.LUDoc import *
+import lyrpy.LUos as LUos
 
 def TEST_LUParserREG ():
     """TEST_LUParserREG"""
@@ -229,9 +230,12 @@ def main ():
 #------------------------------------------
 #beginmodule
 if __name__ == "__main__":
-    if platform.system() == 'Windows':
+    if LUos.GOSInfo.system == 'Windows':
         print("win32")
         main ()
+    #endif
+
+    #if platform.system() == 'Windows':
     #endif
 #endif
 
