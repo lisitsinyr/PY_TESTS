@@ -94,8 +94,10 @@ def main ():
     TEST_GetEnvVar ()
     TEST_SetEnvVar ()
 
-    TEST_TFolders ()
-    ...
+    if LUos.GOSInfo.system == 'Windows':
+        TEST_TFolders ()
+    #endif
+
 #endfunction
 
 #------------------------------------------
