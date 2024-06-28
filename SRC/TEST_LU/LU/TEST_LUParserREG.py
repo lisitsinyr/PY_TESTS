@@ -172,32 +172,6 @@ def TEST_GetFolderCU():
     PrintInfoObject('---------TEST_GetFolderCU----------')
     PrintInfoObject(TEST_GetFolderCU)
     PrintInfoObject(LUParserREG.TREGParser)
-    """
-    REGEDIT4
-    [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders]
-    "AppData"="C:\\Users\\lyr\\AppData\\Roaming"
-    "Local AppData"="C:\\Users\\lyr\\AppData\\Local"
-    "CD Burning"="C:\\Users\\lyr\\AppData\\Local\\Microsoft\\Windows\\Burn\\Burn"
-    "My Video"="C:\\Users\\lyr\\Videos"
-    "My Pictures"="C:\\Users\\lyr\\OneDrive\\Изображения"
-    "Desktop"="C:\\Users\\lyr\\OneDrive\\Рабочий стол"
-    "History"="C:\\Users\\lyr\\AppData\\Local\\Microsoft\\Windows\\History"
-    "NetHood"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Network Shortcuts"
-    "Cookies"="C:\\Users\\lyr\\AppData\\Local\\Microsoft\\Windows\\INetCookies"
-    "Favorites"="C:\\Users\\lyr\\Favorites"
-    "SendTo"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\SendTo"
-    "Start Menu"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu"
-    "My Music"="C:\\Users\\lyr\\Music"
-    "Programs"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs"
-    "Recent"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Recent"
-    "PrintHood"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Printer Shortcuts"
-    "Startup"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
-    "Administrative Tools"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Administrative Tools"
-    "Personal"="C:\\Users\\lyr\\OneDrive\\Документы"
-    "Cache"="C:\\Users\\lyr\\AppData\\Local\\Microsoft\\Windows\\INetCache"
-    "Templates"="C:\\Users\\lyr\\AppData\\Roaming\\Microsoft\\Windows\\Templates"
-    "Fonts"="C:\\Windows\\Fonts"
-    """
     LKeyName = 'Fonts'
     with OpenKey (HKEY_CURRENT_USER,
                          r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders',
