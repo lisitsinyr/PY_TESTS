@@ -31,9 +31,12 @@ if platform.system() == 'Windows':
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import lyrpy.LUParserREG as LUParserREG
 from lyrpy.LUDoc import *
 import lyrpy.LUos as LUos
+
+if platform.system() == 'Windows':
+    import lyrpy.LUParserREG as LUParserREG
+#endif
 
 def TEST_LUParserREG ():
     """TEST_LUParserREG"""
