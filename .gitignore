@@ -37,6 +37,7 @@ env_file
 *.log
 *.egg-info
 *.ipynb_checkpoints
+logging.CONFIG
 
 ### -------------------------------------
 ### Корневой каталог
