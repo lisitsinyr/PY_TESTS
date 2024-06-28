@@ -40,13 +40,8 @@ def TEST_01 ():
 #------------------------------------------
 def main ():
 #beginfunction
-    if LUos.GOSInfo.system == 'Windows':
-        LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI, 'LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
-    #endif
-    if LUos.GOSInfo.system == 'Linux':
-        LULog.STARTLogging (LULog.TTypeSETUPLOG.tslCONFIG, 'LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
-        # raise 'Linux не поддерживается'
-    #endif
+
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI, 'LOG', 'LOGGING_FILEINI.log', 'LOGGING_FILEINI_json.log')
 
     TEST_01 ()
 
