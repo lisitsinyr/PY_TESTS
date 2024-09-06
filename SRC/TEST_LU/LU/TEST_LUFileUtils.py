@@ -42,9 +42,9 @@ def TEST_re (AFileName, AComment, AMask):
     print ('LMask:', AMask)
     Lresult = LUFile.CheckFileNameMask (AFileName, AMask)
     if Lresult :
-        LULog.LoggerAPPS_AddLevel (logging.INFO, AFileName + ' ok!')
+        LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, AFileName + ' ok!')
     else:
-        LULog.LoggerAPPS_AddLevel (logging.ERROR, AFileName + ' not match')
+        LULog.LoggerAdd (LULog.LoggerAPPS, logging.ERROR, AFileName + ' not match')
     #endif
 #endfunction
 

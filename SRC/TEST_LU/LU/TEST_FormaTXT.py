@@ -37,7 +37,6 @@ import chardet
 def GetFileEncoding (AFileName: str) -> str:
     """GetFileEncoding"""
 #beginfunction
-    LEncoding = ''
     LFile = open (AFileName, 'rb')
     LRawData = LFile.read ()
     LResult = chardet.detect (LRawData)

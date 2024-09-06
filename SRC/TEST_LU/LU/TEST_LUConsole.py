@@ -19,6 +19,7 @@ __annotations__ = """
 #------------------------------------------
 import sys
 import time
+import logging
 
 #------------------------------------------
 # БИБЛИОТЕКИ сторонние
@@ -53,15 +54,15 @@ def TEST_LUConsole ():
     PrintInfoObject(TEST_LUConsole)
     PrintInfoObject(LUConsole)
 
-    LULog.LoggerAPPS_AddInfo (sys.stdout.encoding)
-    LULog.LoggerAPPS_AddInfo (sys.stdout.name)
-    LULog.LoggerAPPS_AddInfo (sys.stdout.isatty())
-    LULog.LoggerAPPS_AddInfo (sys.stdout.mode)
+    LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, sys.stdout.encoding)
+    LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, sys.stdout.name)
+    LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, sys.stdout.isatty())
+    LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, sys.stdout.mode)
     # if sys.stdout.isatty ():
     if LUSupport.IsTerminal ():
-        LULog.LoggerAPPS_AddInfo ('Это терминал WINDOWS')
+        LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, 'Это терминал WINDOWS')
     else:
-        LULog.LoggerAPPS_AddInfo ('Это терминал piped or redirected')
+        LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, 'Это терминал piped or redirected')
     #endif
 #endfunction
 

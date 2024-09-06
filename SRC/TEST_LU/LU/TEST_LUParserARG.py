@@ -45,24 +45,23 @@ def TEST_GetParam ():
     PrintInfoObject(TEST_GetParam)
 
     s = f'sys.argv = {sys.argv}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP1 = LUParserARG.GetParam('p1', "")
     s = f'p1 = {LP1}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP2 = LUParserARG.GetParam('P2', "")
     s = f'P2 = {LP2}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP3 = LUParserARG.GetParam('P3', "")
     s = f'P3 = {LP3}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP4 = LUParserARG.GetParam('P4', "")
     s = f'P4 = {LP4}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
-    ...
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 #endfunction
 
 def TEST_ArgumentParser ():
@@ -72,7 +71,7 @@ def TEST_ArgumentParser ():
     PrintInfoObject(TEST_ArgumentParser)
 
     s = f'sys.argv = {sys.argv}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     Lparser = argparse.ArgumentParser (description='Параметры', prefix_chars='-/')
     Lparser.add_argument ('FileName', type = str, default='', help = 'FileName')
@@ -83,20 +82,19 @@ def TEST_ArgumentParser ():
     Largs = Lparser.parse_args ()
     LP1 = Largs.p1
     s = f'p1 = {LP1}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP2 = Largs.P2
     s = f'P2 = {LP2}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP3 = Largs.P3
     s = f'P3 = {LP3}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP4 = Largs.P4
     s = f'P4 = {LP4}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
-    ...
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 #endfunction
 
 def TEST_TArgParser ():
@@ -106,7 +104,7 @@ def TEST_TArgParser ():
     PrintInfoObject(TEST_TArgParser)
 
     s = f'sys.argv = {sys.argv}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LArgParser = LUParserARG.TArgParser(description='Параметры', prefix_chars='-/')
     #-----------------------------------------------------------------
@@ -125,15 +123,15 @@ def TEST_TArgParser ():
     #-----------------------------------------------------------------
     # LArg = LArgParser.add_argument ('FileName', type = str, default='', help = 'FileName')
     LArg = LArgParser.ArgParser.add_argument ('FileName', type = str, default='', help = 'FileName')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LArg)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('-p1', type = str, default='', help = 'p1')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LArg)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('/P2', type = int, default=-1, help = 'P2')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LArg)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('-P3', type = int, default=-1, help = 'P3')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LArg)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, LArg)
     LArg = LArgParser.add_argument ('-P4', type = int, default=-1, nargs = '?', help = 'P4')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LArg)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, LArg)
 
     # _StoreAction(option_strings=[], dest='FileName', nargs='?', const=None, default='', type=<class 'str'>, choices=None, required=False, help='FileName', metavar=None)
     # _StoreAction(option_strings=['-p1'], dest='p1', nargs='?', const=None, default='', type=<class 'str'>, choices=None, required=False, help='p1', metavar=None)
@@ -143,35 +141,33 @@ def TEST_TArgParser ():
 
     # Largs = LArgParser.parse_args ()
     Largs = LArgParser.ArgParser.parse_args ()
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, Largs.__dict__)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, Largs.__dict__)
 
     LFileName = Largs.FileName
     s = f'FileName = {LFileName}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP1 = Largs.p1
     s = f'p1 = {LP1}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP2 = Largs.P2
     s = f'P2 = {LP2}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP3 = Largs.P3
     s = f'P3 = {LP3}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     LP4 = Largs.P4
     s = f'P4 = {LP4}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
     # parser.add_argument('integers', metavar='N', type=int, nargs='+', help='an integer for the accumulator')
     #_StoreAction(option_strings=[], dest='integers', nargs='+', const=None, default=None, type=<class 'int'>, choices=None, required=True, help='an integer for the accumulator', metavar='N')
     # parser.add_argument('--sum', dest='accumulate', action='store_const',const=sum, default=max, help='sum the integers (default: find the max)')
     #_StoreConstAction(option_strings=['--sum'], dest='accumulate', nargs=0, const=<built-in function sum>, default=<built-in function max>, type=None, choices=None, required=False, help='sum the integers (default: find the max)', metavar=None)
     #Namespace(integers=[7, -1, 42], accumulate=<built-in function sum>)
-
-    ...
 #endfunction
 
 #------------------------------------------
@@ -185,7 +181,6 @@ def main ():
     TEST_GetParam ()
     # TEST_ArgumentParser ()
     # TEST_TArgParser ()
-    ...
 #endfunction
 
 #------------------------------------------

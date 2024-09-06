@@ -28,7 +28,7 @@ import argparse
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-import lyrpy.LULog as LULog
+# import lyrpy.LULog as LULog
 
 from lyrpy.LUDoc import *
 import lyrpy.LUos as LUos
@@ -53,7 +53,7 @@ def TEST_GetLogFileName ():
     PrintInfoObject(TEST_GetLogFileName)
 
     s = LULog.GetLogFileName()
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 #endfunction
 
 def TEST_GetLogFileNameSufix ():
@@ -63,7 +63,7 @@ def TEST_GetLogFileNameSufix ():
     PrintInfoObject(TEST_GetLogFileNameSufix)
 
     s = LULog.GetLogFileNameSufix('sufix')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 #endfunction
 
 def TEST_Log_KIX ():
@@ -479,7 +479,7 @@ def __GetARGS ():
     if not GArgParser is None:
         GArgParser.Clear()
         GArgParser.ArgParser.description = GArgParser.ArgParser.description+' '+'TEST_LULog.py'
-        LULog.LoggerAPPS_AddLevel (LULog.TEXT, GArgParser.ArgParser.description)
+        LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, GArgParser.ArgParser.description)
         if GArgParser.Args is None:
             GArgParser.ReadARGS (LArgs)
             # print (GArgParser.Args)
@@ -529,14 +529,16 @@ def __GetINI ():
         # LFileLog = LUFile.ExpandFileName(LFileLog)
         GINIFile.SetOption ('handler_FILE_01', 'args', "('" + LLogFile + "',)")
     #endif
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LLogFile)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, LLogFile)
 #endfunction
 
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
-                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
+                        r'D:\PROJECTS_LYR\LOGS',
+                        'TEST_LULog.log',
+                        'TEST_LULog_json.log')
 
     TEST_LULog ()
 

@@ -84,19 +84,19 @@ def main ():
 #beginfunction
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
-    LULog.LoggerTOOLS_AddLevel (LULog.TEXT, "Тест")
+    LULog.LoggerAdd (LULog.LoggerTOOLS, LULog.TEXT, "Тест")
     TEST_01 ()
     LULog.STOPLogging ()
 
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslCONFIG, 'LOG_CONFIG',
                         'LOGGING_FILECONFIG.log','LOGGING_FILECONFIG_json.log')
-    LULog.LoggerTOOLS_AddLevel (LULog.TEXT, "Тест")
+    LULog.LoggerAdd (LULog.LoggerTOOLS, LULog.TEXT, "Тест")
     TEST_01 ()
     LULog.STOPLogging ()
 
     LULog.STARTLogging (LULog.TTypeSETUPLOG.tslYAML, 'LOG_YAML',
                         'LOGGING_FILEYAML.log','LOGGING_FILEYAML_json.log')
-    LULog.LoggerTOOLS_AddLevel (LULog.TEXT, "Тест")
+    LULog.LoggerAdd (LULog.LoggerTOOLS, LULog.TEXT, "Тест")
     TEST_01 ()
     LULog.STOPLogging ()
 

@@ -63,7 +63,7 @@ def TEST_TINIFile ():
     LSectionName = 'general_ERROR'
     LOptionName = 'OptionName 03'
     LOptionValue = LINIFile.GetOption(LSectionName, LOptionName, 'Default')
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, LOptionValue)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, LOptionValue)
 
     LSectionName = 'general 03'
     LOptionName = 'OptionName 03'
@@ -73,12 +73,12 @@ def TEST_TINIFile ():
 
     for Section in LINIFile.Sections:
         s = f'SectionName={Section}'
-        LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+        LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 
         LINIFile.SectionName = Section
         for Option in LINIFile.Options:
             s = f'    OptionName={Option}'
-            LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+            LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
         #endfor
     #endfor
 
@@ -104,11 +104,11 @@ def TEST_TINIFile_02 ():
 
     for Section in LINIFile.Sections:
         s = f'SectionName={Section}'
-        LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+        LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
         LINIFile.SectionName = Section
         for Option in LINIFile.Options:
             s = f'    OptionName={Option}'
-            LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+            LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
         #endfor
     #endfor
 #endfunction

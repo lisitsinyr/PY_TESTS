@@ -14,6 +14,7 @@ __annotations__ = """
  =======================================================
 """
 
+import logging
 #------------------------------------------
 # БИБЛИОТЕКИ python
 #------------------------------------------
@@ -39,10 +40,9 @@ def TEST_LUos ():
     PrintInfoObject('---------TEST_LUos----------')
     PrintInfoObject(TEST_LUos)
     s = 'os.name->',os.name
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
     s = "os.environ['PYTHONPATH']->", os.environ['PYTHONPATH']
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
-    ...
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 #endfunction
 
 def TEST_GetEnvVar ():
@@ -52,9 +52,9 @@ def TEST_GetEnvVar ():
     PrintInfoObject(TEST_GetEnvVar)
 
     s = f'LUos.cHOME={LUos.GetEnvVar (LUos.cHOME)}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
     s = f'LUos.cWINDIR={LUos.GetEnvVar (LUos.cWINDIR)}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
 #endfunction
 
 def TEST_SetEnvVar ():
@@ -65,8 +65,7 @@ def TEST_SetEnvVar ():
 
     LUos.SetEnvVar(LUos.cTEST,'ValueTEST')
     s = LUos.GetEnvVar (LUos.cTEST)
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, f'{LUos.cTEST}={s}')
-    ...
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, f'{LUos.cTEST}={s}')
 #endfunction
 
 def TEST_TFolders ():
@@ -76,19 +75,21 @@ def TEST_TFolders ():
     PrintInfoObject(TEST_TFolders)
 
     LULog.PrintHandlers (LULog.LoggerAPPS)
-    LULog.LoggerAPPS_AddDebug('LULogger.debug')
+
+    LULog.LoggerAdd (LULog.LoggerAPPS, logging.DEBUG,'LULogger.debug')
     LTFolders = LUos.TFolders()
     s = f'LTFolders.cuDesktop={LTFolders.cuDesktop}'
-    LULog.LoggerAPPS_AddLevel (LULog.TEXT, s)
-    LULog.LoggerAPPS_AddInfo (s)
-    ...
+    LULog.LoggerAdd (LULog.LoggerAPPS, LULog.TEXT, s)
+    LULog.LoggerAdd (LULog.LoggerAPPS, logging.INFO, s)
 #endfunction
 
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
-                        'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
+                        r'D:\PROJECTS_LYR\LOGS',
+                        'TEST_LUos.log',
+                        'TEST_LUos_json.log')
 
     TEST_LUos ()
     TEST_GetEnvVar ()
