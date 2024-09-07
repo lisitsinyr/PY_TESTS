@@ -27,7 +27,7 @@ from celery.schedules import crontab
 #------------------------------------------
 # БИБЛИОТЕКА LU 
 #------------------------------------------
-from LUDoc import *
+from lyrpy.LUDoc import *
 
 def TEST_Celery ():
     """TEST_Celery"""
@@ -80,9 +80,15 @@ def TEST_Celery_01 ():
 #------------------------------------------
 def main ():
 #beginfunction
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
+                    r'D:\PROJECTS_LYR\LOGS',
+                    'PATTERN_PY_FILEINI.log',
+                    'PATTERN_PY_FILEINI_json.log')
+
     TEST_Celery ()
     TEST_Celery_01 ()
-    ...
+
+    LULog.STOPLogging ()
 #endfunction
 
 #------------------------------------------

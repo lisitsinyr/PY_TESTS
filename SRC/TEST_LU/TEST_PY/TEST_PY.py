@@ -1,4 +1,4 @@
-"""TEST_LUsys.py"""
+"""TEST_LU.py"""
 # -*- coding: UTF-8 -*-
 __annotations__ = """
  =======================================================
@@ -9,7 +9,7 @@ __annotations__ = """
      LU_PY
      Python (LU)
  Module:
-     TEST_LUsys.py
+     TEST_LU.py
 
  =======================================================
 """
@@ -23,29 +23,30 @@ __annotations__ = """
 #------------------------------------------
 
 #------------------------------------------
-# БИБЛИОТЕКИ LU
+# БИБЛИОТЕКА LU
 #------------------------------------------
+# import lyrpy.LUConst as LUConst
+# import lyrpy.LULog as LULog
+# import lyrpy.LUDoc as LUDoc
+import lyrpy.LUDoc as LUDoc
+import lyrpy.LULog as LULog
 
-#------------------------------------------
-import lyrpy.LUsys as LUsys
-from lyrpy.LUDoc import *
-
-def TEST_LUsys ():
-    """TEST_LUsys"""
+def TEST_01 ():
+    """TEST_"""
 #beginfunction
-    PrintInfoObject(TEST_LUsys)
-    PrintInfoObject(LUsys)
-    print (TEST_LUsys)
+    LUDoc.PrintInfoObject('-----TEST_01----')
+    LUDoc.PrintInfoObject(TEST_01)
 #endfunction
 
 #------------------------------------------
 def main ():
 #beginfunction
-    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,'LOG_INIT',
+    LULog.STARTLogging (LULog.TTypeSETUPLOG.tslINI,
+                        r'D:\PROJECTS_LYR\LOGS',
                         'LOGGING_FILEINI.log','LOGGING_FILEINI_json.log')
 
-    TEST_LUsys ()
-    ...
+    TEST_01 ()
+
 #endfunction
 
 #------------------------------------------
