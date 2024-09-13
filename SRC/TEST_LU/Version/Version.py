@@ -27,8 +27,8 @@ args = parser.parse_args()
 #print('-PYDir  = '+args.PYDir)
 #print('-P1 = ',args.P1)
 #------------------------------------------
-#PYDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\DESKTOP\\02_Python\\PROJECTS_PY\\TOOLS_PY\\PY'
-#PYDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\DESKTOP\\02_Python\\PROJECTS_PY\\TOOLS_PY\\PY'
+#PYDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\DESKTOP\\Python\\PROJECTS_PY\\TOOLS_PY\\PY'
+#PYDir = 'D:\\PROJECTS_LYR\\CHECK_LIST\\DESKTOP\\Python\\PROJECTS_PY\\TOOLS_PY\\PY'
 #if args.PYDir != "":
 #    PYDir = args.PYDir
 #endif
