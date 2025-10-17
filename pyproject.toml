@@ -1,14 +1,15 @@
-[tool.poetry]
-name = "pattern-py"
+[project]
+name = "TESTS_PY"
 version = "0.1.0"
-description = ""
-authors = ["lisitsinyr <lisitsinyr@gmail.com>"]
+description = "Add your description here"
 readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chardet>=5.2.0",
+    "fonttools>=4.60.1",
+    "psutil>=7.1.0",
+    "pyperclip",
+    "pyrogram>=2.0.106",
+    "rich>=14.2.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
