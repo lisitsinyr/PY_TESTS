@@ -17,13 +17,13 @@ setlocal enabledelayedexpansion
     set P1=P1_default
     set P1=
     call :Check_P P1 %1 || exit /b 1
-    rem echo P1: %P1%    
+    rem echo ..P1.. P1: %P1%    
 
     rem set PN_CAPTION=Ввод значения
     set P2=P2_default
     set P2=
     call :Check_P P2 %2 || exit /b 1
-    rem echo P2: %P2%    
+    rem echo ..P1.. P2: %P2%    
 
     if "%P1%"=="" (
         echo ERROR: Параметр P1 не задан...
